@@ -1,0 +1,52 @@
+[
+  {
+    "type": "mustache_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "mustache_statement_end",
+          "named": true
+        },
+        {
+          "type": "mustache_statement_start",
+          "named": true
+        },
+        {
+          "type": "path_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "template",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "mustache_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "mustache_statement_end",
+    "named": true
+  },
+  {
+    "type": "mustache_statement_start",
+    "named": true
+  },
+  {
+    "type": "path_expression",
+    "named": true
+  }
+]

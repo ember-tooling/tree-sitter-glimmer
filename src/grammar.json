@@ -1,0 +1,71 @@
+{
+  "name": "glimmer",
+  "rules": {
+    "template": {
+      "type": "REPEAT",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "mustache_statement"
+          }
+        ]
+      }
+    },
+    "html": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "PATTERN",
+          "value": "[^<]+|<"
+        }
+      }
+    },
+    "mustache_statement_start": {
+      "type": "STRING",
+      "value": "{{"
+    },
+    "mustache_statement_end": {
+      "type": "STRING",
+      "value": "}}"
+    },
+    "path_expression": {
+      "type": "STRING",
+      "value": "foo"
+    },
+    "mustache_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "mustache_statement_start"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "path_expression"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "mustache_statement_end"
+        }
+      ]
+    }
+  },
+  "extras": [
+    {
+      "type": "PATTERN",
+      "value": "\\s"
+    }
+  ],
+  "conflicts": [],
+  "externals": [],
+  "inline": [],
+  "supertypes": []
+}
+

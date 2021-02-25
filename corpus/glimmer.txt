@@ -1,0 +1,13 @@
+==================
+Mustache Statements
+==================
+
+{{foo}}
+
+---
+
+(template
+  (mustache_statement
+    (mustache_statement_start)
+    (path_expression)
+    (mustache_statement_end)))

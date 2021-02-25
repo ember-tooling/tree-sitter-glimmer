@@ -25,5 +25,9 @@
       "injections": "queries/injections-ejs.scm",
       "injection-regex": "hbs"
     }
-  ]
+  ],
+  "volta": {
+    "node": "14.16.0",
+    "yarn": "1.22.10"
+  }
 }

@@ -83,7 +83,8 @@ module.exports = grammar({
         $.string_literal,
         $.number_literal,
         $.boolean_literal,
-        $.path_expression
+        $.path_expression,
+        $.sub_expression
       ),
 
     mustache_statement: ($) =>
@@ -92,6 +93,8 @@ module.exports = grammar({
         repeat($._value),
         $._mustache_statement_end
       ),
+
+    sub_expression: ($) => seq("(", repeat($._value), ")"),
 
     //
     // Primitives

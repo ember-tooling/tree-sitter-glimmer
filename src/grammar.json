@@ -242,6 +242,10 @@
         {
           "type": "SYMBOL",
           "name": "path_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sub_expression"
         }
       ]
     },
@@ -262,6 +266,26 @@
         {
           "type": "SYMBOL",
           "name": "_mustache_statement_end"
+        }
+      ]
+    },
+    "sub_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_value"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ")"
         }
       ]
     },

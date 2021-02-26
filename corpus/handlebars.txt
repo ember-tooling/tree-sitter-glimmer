@@ -21,3 +21,20 @@ Helper Invocation
 (template
   (mustache_statement
     (path_expression)))
+
+==================
+Sub Expressions
+==================
+
+{{eq (add 1 2) 3}}
+
+---
+
+(template
+  (mustache_statement
+    (path_expression)
+    (sub_expression
+      (path_expression)
+      (number_literal)
+      (number_literal))
+    (number_literal)))

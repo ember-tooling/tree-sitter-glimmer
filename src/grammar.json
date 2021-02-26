@@ -34,6 +34,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "number_literal"
+        },
+        {
+          "type": "SYMBOL",
           "name": "path_expression"
         }
       ]
@@ -104,6 +108,10 @@
           "value": "\""
         }
       ]
+    },
+    "number_literal": {
+      "type": "PATTERN",
+      "value": "[\\da-fA-F](_?[\\da-fA-F])*"
     }
   },
   "extras": [

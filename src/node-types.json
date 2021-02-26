@@ -16,6 +16,10 @@
           "named": true
         },
         {
+          "type": "number_literal",
+          "named": true
+        },
+        {
           "type": "path_expression",
           "named": true
         },
@@ -60,6 +64,10 @@
   },
   {
     "type": "mustache_statement_start",
+    "named": true
+  },
+  {
+    "type": "number_literal",
     "named": true
   },
   {

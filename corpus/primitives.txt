@@ -25,3 +25,17 @@ Single-Quote String
     (mustache_statement_start)
     (string_literal)
     (mustache_statement_end)))
+
+==================
+Number
+==================
+
+{{12}}
+
+---
+
+(template
+  (mustache_statement
+    (mustache_statement_start)
+    (number_literal)
+    (mustache_statement_end)))

@@ -3,7 +3,28 @@ module.exports = grammar({
 
   rules: {
     // Entire file
-    template: ($) => repeat(choice($.mustache_statement)),
+    template: ($) => repeat(choice($.mustache_statement, $.element_node)),
+
+    //
+    // HTML Elements
+    //
+
+    // Match any sequence of letters, including hyphens (for web components)
+    tag_name: () => /([a-zA-Z]|-)+/,
+
+    // "Normal" elements with separate opening and closing tags
+    element_node_start: ($) => seq("<", $.tag_name, ">"),
+    element_node_end: ($) => seq("</", $.tag_name, ">"),
+
+    // "Void" elements are self-closing
+    element_node_void: ($) => seq("<", $.tag_name, "/>"),
+
+    // An "Element" is either a "normal" or "void" element
+    element_node: ($) =>
+      choice(
+        seq($.element_node_start, $.element_node_end),
+        $.element_node_void
+      ),
 
     // Entering/existing Handlebars expressions
     mustache_statement_start: () => "{{",

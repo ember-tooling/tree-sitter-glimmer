@@ -1,0 +1,27 @@
+==================
+Double-Quote String
+==================
+
+{{"foo"}}
+
+---
+
+(template
+  (mustache_statement
+    (mustache_statement_start)
+    (string_literal)
+    (mustache_statement_end)))
+
+==================
+Single-Quote String
+==================
+
+{{'foo'}}
+
+---
+
+(template
+  (mustache_statement
+    (mustache_statement_start)
+    (string_literal)
+    (mustache_statement_end)))

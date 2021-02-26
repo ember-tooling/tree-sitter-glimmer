@@ -18,9 +18,18 @@
         {
           "type": "path_expression",
           "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
         }
       ]
     }
+  },
+  {
+    "type": "string_literal",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "template",
@@ -36,6 +45,14 @@
         }
       ]
     }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "'",
+    "named": false
   },
   {
     "type": "mustache_statement_end",

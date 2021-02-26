@@ -1,0 +1,24 @@
+==================
+Block Params
+==================
+
+<MyCoolComponent as |foo bar|>
+  {{foo}}
+  {{bar}}
+</MyCoolComponent>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (block_params
+        (path_expression)
+        (path_expression)))
+    (mustache_statement
+      (path_expression))
+    (mustache_statement
+      (path_expression))
+    (element_node_end
+      (tag_name))))

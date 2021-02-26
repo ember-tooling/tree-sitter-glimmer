@@ -25,7 +25,13 @@ module.exports = grammar({
 
     // "Normal" elements with separate opening and closing tags
     element_node_start: ($) =>
-      seq("<", $.tag_name, repeat($.attribute_node), ">"),
+      seq(
+        "<",
+        $.tag_name,
+        repeat($.attribute_node),
+        optional($.block_params),
+        ">"
+      ),
     element_node_end: ($) => seq("</", $.tag_name, ">"),
 
     // "Void" elements are self-closing
@@ -54,6 +60,8 @@ module.exports = grammar({
           )
         )
       ),
+
+    block_params: ($) => seq("as", "|", repeat($.path_expression), "|"),
 
     // Entering/existing Handlebars expressions
     _mustache_statement_start: () => "{{",

@@ -13,6 +13,10 @@
       "required": true,
       "types": [
         {
+          "type": "element_node",
+          "named": true
+        },
+        {
           "type": "element_node_end",
           "named": true
         },
@@ -22,6 +26,10 @@
         },
         {
           "type": "element_node_void",
+          "named": true
+        },
+        {
+          "type": "text_node",
           "named": true
         }
       ]

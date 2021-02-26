@@ -33,7 +33,11 @@ module.exports = grammar({
     // An "Element" is either a "normal" or "void" element
     element_node: ($) =>
       choice(
-        seq($.element_node_start, $.element_node_end),
+        seq(
+          $.element_node_start,
+          repeat(choice($.text_node, $.element_node)),
+          $.element_node_end
+        ),
         $.element_node_void
       ),
 

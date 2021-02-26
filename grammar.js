@@ -24,7 +24,8 @@ module.exports = grammar({
     tag_name: () => /([a-zA-Z]|-)+/,
 
     // "Normal" elements with separate opening and closing tags
-    element_node_start: ($) => seq("<", $.tag_name, ">"),
+    element_node_start: ($) =>
+      seq("<", $.tag_name, repeat($.attribute_node), ">"),
     element_node_end: ($) => seq("</", $.tag_name, ">"),
 
     // "Void" elements are self-closing
@@ -39,6 +40,19 @@ module.exports = grammar({
           $.element_node_end
         ),
         $.element_node_void
+      ),
+
+    attribute_name: () => /[^<>"'/=\s]+/,
+
+    attribute_node: ($) =>
+      seq(
+        $.attribute_name,
+        optional(
+          seq(
+            "=",
+            choice($.string_literal, $.number_literal, $.mustache_statement)
+          )
+        )
       ),
 
     // Entering/existing Handlebars expressions

@@ -1,0 +1,76 @@
+==================
+String Value
+==================
+
+<div class="foo" data-attr="bar"></div>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)
+        (string_literal))
+      (attribute_node
+        (attribute_name)
+        (string_literal)))
+    (element_node_end
+      (tag_name))))
+
+==================
+String Value
+==================
+
+<div tabindex=1></div>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)
+        (number_literal)))
+    (element_node_end
+      (tag_name))))
+
+==================
+Handlebars Value
+==================
+
+<div class={{someValue}}></div>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)
+        (mustache_statement
+          (mustache_statement_start)
+          (path_expression)
+          (mustache_statement_end))))
+    (element_node_end
+      (tag_name))))
+
+==================
+No Value
+==================
+
+<div boolean-attr></div>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)))
+    (element_node_end
+      (tag_name))))

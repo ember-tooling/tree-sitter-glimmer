@@ -8,9 +8,7 @@ Double-Quote String
 
 (template
   (mustache_statement
-    (mustache_statement_start)
-    (string_literal)
-    (mustache_statement_end)))
+    (string_literal)))
 
 ==================
 Single-Quote String
@@ -22,9 +20,7 @@ Single-Quote String
 
 (template
   (mustache_statement
-    (mustache_statement_start)
-    (string_literal)
-    (mustache_statement_end)))
+    (string_literal)))
 
 ==================
 Number
@@ -36,9 +32,7 @@ Number
 
 (template
   (mustache_statement
-    (mustache_statement_start)
-    (number_literal)
-    (mustache_statement_end)))
+    (number_literal)))
 
 ==================
 Boolean
@@ -52,10 +46,6 @@ Boolean
 
 (template
   (mustache_statement
-    (mustache_statement_start)
-    (boolean_literal)
-    (mustache_statement_end))
+    (boolean_literal))
   (mustache_statement
-    (mustache_statement_start)
-    (boolean_literal)
-    (mustache_statement_end)))
+    (boolean_literal)))

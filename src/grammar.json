@@ -176,11 +176,11 @@
         }
       ]
     },
-    "mustache_statement_start": {
+    "_mustache_statement_start": {
       "type": "STRING",
       "value": "{{"
     },
-    "mustache_statement_end": {
+    "_mustache_statement_end": {
       "type": "STRING",
       "value": "}}"
     },
@@ -214,7 +214,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "mustache_statement_start"
+          "name": "_mustache_statement_start"
         },
         {
           "type": "REPEAT",
@@ -225,7 +225,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "mustache_statement_end"
+          "name": "_mustache_statement_end"
         }
       ]
     },

@@ -53,8 +53,6 @@ Mustache Contents
     (element_node_start
       (tag_name))
     (mustache_statement
-      (mustache_statement_start)
-      (path_expression)
-      (mustache_statement_end))
+      (path_expression))
     (element_node_end
       (tag_name))))

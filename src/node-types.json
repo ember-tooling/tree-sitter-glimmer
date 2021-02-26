@@ -121,18 +121,10 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "boolean_literal",
-          "named": true
-        },
-        {
-          "type": "mustache_statement_end",
-          "named": true
-        },
-        {
-          "type": "mustache_statement_start",
           "named": true
         },
         {
@@ -213,14 +205,6 @@
   {
     "type": "false",
     "named": false
-  },
-  {
-    "type": "mustache_statement_end",
-    "named": true
-  },
-  {
-    "type": "mustache_statement_start",
-    "named": true
   },
   {
     "type": "number_literal",

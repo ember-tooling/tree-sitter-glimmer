@@ -56,8 +56,8 @@ module.exports = grammar({
       ),
 
     // Entering/existing Handlebars expressions
-    mustache_statement_start: () => "{{",
-    mustache_statement_end: () => "}}",
+    _mustache_statement_start: () => "{{",
+    _mustache_statement_end: () => "}}",
 
     // Glimmer parses all of these as "path expressions"
     // - Variables (foo)
@@ -80,9 +80,9 @@ module.exports = grammar({
 
     mustache_statement: ($) =>
       seq(
-        $.mustache_statement_start,
+        $._mustache_statement_start,
         repeat($._value),
-        $.mustache_statement_end
+        $._mustache_statement_end
       ),
 
     //

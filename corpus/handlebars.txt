@@ -8,9 +8,7 @@ Variable Access
 
 (template
   (mustache_statement
-    (mustache_statement_start)
-    (path_expression)
-    (mustache_statement_end)))
+    (path_expression)))
 
 ==================
 Helper Invocation
@@ -22,6 +20,4 @@ Helper Invocation
 
 (template
   (mustache_statement
-    (mustache_statement_start)
-    (path_expression)
-    (mustache_statement_end)))
+    (path_expression)))

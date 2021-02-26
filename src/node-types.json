@@ -127,6 +127,10 @@
         {
           "type": "mustache_statement",
           "named": true
+        },
+        {
+          "type": "text_node",
+          "named": true
         }
       ]
     }
@@ -177,6 +181,10 @@
   },
   {
     "type": "tag_name",
+    "named": true
+  },
+  {
+    "type": "text_node",
     "named": true
   },
   {

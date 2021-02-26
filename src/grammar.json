@@ -13,9 +13,17 @@
           {
             "type": "SYMBOL",
             "name": "element_node"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "text_node"
           }
         ]
       }
+    },
+    "text_node": {
+      "type": "PATTERN",
+      "value": "[^<>{}\\s]+"
     },
     "tag_name": {
       "type": "PATTERN",

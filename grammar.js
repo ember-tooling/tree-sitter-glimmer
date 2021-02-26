@@ -3,7 +3,18 @@ module.exports = grammar({
 
   rules: {
     // Entire file
-    template: ($) => repeat(choice($.mustache_statement, $.element_node)),
+    template: ($) =>
+      repeat(choice($.mustache_statement, $.element_node, $.text_node)),
+
+    //
+    // Text
+    //
+
+    // Match anything that doesn't start with
+    // - Whitespace
+    // - An open/close HTML delimiter (<, >)
+    // - An open/close Mustache delimiter ({, })
+    text_node: () => /[^<>{}\s]+/,
 
     //
     // HTML Elements

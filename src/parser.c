@@ -95,38 +95,39 @@ static bool ts_lex(TSLexer *lexer, TSStateId state) {
   eof = lexer->eof(lexer);
   switch (state) {
     case 0:
-      if (eof) ADVANCE(5);
-      if (lookahead == 'f') ADVANCE(2);
-      if (lookahead == '{') ADVANCE(3);
-      if (lookahead == '}') ADVANCE(4);
+      if (eof) ADVANCE(3);
+      if (lookahead == '-' ||
+          lookahead == '.' ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(6);
+      if (lookahead == '{') ADVANCE(1);
+      if (lookahead == '}') ADVANCE(2);
       if (lookahead == '\t' ||
           lookahead == '\n' ||
           lookahead == '\r' ||
           lookahead == ' ') SKIP(0)
       END_STATE();
     case 1:
-      if (lookahead == 'o') ADVANCE(8);
+      if (lookahead == '{') ADVANCE(4);
       END_STATE();
     case 2:
-      if (lookahead == 'o') ADVANCE(1);
+      if (lookahead == '}') ADVANCE(5);
       END_STATE();
     case 3:
-      if (lookahead == '{') ADVANCE(6);
-      END_STATE();
-    case 4:
-      if (lookahead == '}') ADVANCE(7);
-      END_STATE();
-    case 5:
       ACCEPT_TOKEN(ts_builtin_sym_end);
       END_STATE();
-    case 6:
+    case 4:
       ACCEPT_TOKEN(sym_mustache_statement_start);
       END_STATE();
-    case 7:
+    case 5:
       ACCEPT_TOKEN(sym_mustache_statement_end);
       END_STATE();
-    case 8:
+    case 6:
       ACCEPT_TOKEN(sym_path_expression);
+      if (lookahead == '-' ||
+          lookahead == '.' ||
+          ('A' <= lookahead && lookahead <= 'Z') ||
+          ('a' <= lookahead && lookahead <= 'z')) ADVANCE(6);
       END_STATE();
     default:
       return false;

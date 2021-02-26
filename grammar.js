@@ -12,8 +12,11 @@ module.exports = grammar({
     mustache_statement_start: () => "{{",
     mustache_statement_end: () => "}}",
 
-    // Variables in a mustache statement
-    path_expression: () => "foo",
+    // Glimmer parses all of these as "path expressions"
+    // - Variables (foo)
+    // - Nested variable access (foo.bar_)
+    // - Helpers (foo-bar)
+    path_expression: () => /([a-zA-Z]|-|\.)+/,
 
     mustache_statement: ($) =>
       seq(

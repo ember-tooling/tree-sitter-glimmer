@@ -1,8 +1,22 @@
 ==================
-Mustache Statements
+Variable Access
 ==================
 
-{{foo}}
+{{someVariable.nestedProperty}}
+
+---
+
+(template
+  (mustache_statement
+    (mustache_statement_start)
+    (path_expression)
+    (mustache_statement_end)))
+
+==================
+Helper Invocation
+==================
+
+{{some-helper}}
 
 ---
 

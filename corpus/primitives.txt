@@ -39,3 +39,23 @@ Number
     (mustache_statement_start)
     (number_literal)
     (mustache_statement_end)))
+
+==================
+Boolean
+==================
+
+{{true}}
+
+{{false}}
+
+---
+
+(template
+  (mustache_statement
+    (mustache_statement_start)
+    (boolean_literal)
+    (mustache_statement_end))
+  (mustache_statement
+    (mustache_statement_start)
+    (boolean_literal)
+    (mustache_statement_end)))

@@ -38,6 +38,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "boolean_literal"
+        },
+        {
+          "type": "SYMBOL",
           "name": "path_expression"
         }
       ]
@@ -112,6 +116,19 @@
     "number_literal": {
       "type": "PATTERN",
       "value": "[\\da-fA-F](_?[\\da-fA-F])*"
+    },
+    "boolean_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "true"
+        },
+        {
+          "type": "STRING",
+          "value": "false"
+        }
+      ]
     }
   },
   "extras": [

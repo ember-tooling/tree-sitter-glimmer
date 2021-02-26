@@ -21,7 +21,12 @@ module.exports = grammar({
     // - Variables
     // - Handlebars sub-expressions
     _value: ($) =>
-      choice($.string_literal, $.number_literal, $.path_expression),
+      choice(
+        $.string_literal,
+        $.number_literal,
+        $.boolean_literal,
+        $.path_expression
+      ),
 
     mustache_statement: ($) =>
       seq(
@@ -42,5 +47,7 @@ module.exports = grammar({
     _double_quote_string_literal: () => seq('"', /[^"\\]+/, '"'),
 
     number_literal: () => /[\da-fA-F](_?[\da-fA-F])*/,
+
+    boolean_literal: () => choice("true", "false"),
   },
 });

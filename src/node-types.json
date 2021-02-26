@@ -29,6 +29,10 @@
           "named": true
         },
         {
+          "type": "mustache_statement",
+          "named": true
+        },
+        {
           "type": "text_node",
           "named": true
         }

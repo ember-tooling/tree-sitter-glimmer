@@ -35,7 +35,7 @@ module.exports = grammar({
       choice(
         seq(
           $.element_node_start,
-          repeat(choice($.text_node, $.element_node)),
+          repeat(choice($.text_node, $.element_node, $.mustache_statement)),
           $.element_node_end
         ),
         $.element_node_void

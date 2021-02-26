@@ -102,6 +102,10 @@
                   {
                     "type": "SYMBOL",
                     "name": "element_node"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "mustache_statement"
                   }
                 ]
               }

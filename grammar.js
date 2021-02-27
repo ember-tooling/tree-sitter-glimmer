@@ -37,7 +37,7 @@ module.exports = grammar({
       seq(
         "<",
         $.tag_name,
-        repeat($.attribute_node),
+        repeat(choice($.attribute_node, alias($.comment, $.comment_statement))),
         optional($.block_params),
         ">"
       ),

@@ -52,8 +52,22 @@
         {
           "type": "REPEAT",
           "content": {
-            "type": "SYMBOL",
-            "name": "attribute_node"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "attribute_node"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "comment"
+                },
+                "named": true,
+                "value": "comment_statement"
+              }
+            ]
           }
         },
         {

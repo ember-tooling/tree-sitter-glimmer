@@ -48,7 +48,7 @@ HBS Single-Line Comments with Line Break
     (path_expression)))
 
 ==================
-Comment in an element
+Comment as element child
 ==================
 
 <div>
@@ -62,5 +62,21 @@ Comment in an element
     (element_node_start
       (tag_name))
     (comment_statement)
+    (element_node_end
+      (tag_name))))
+
+==================
+Comment inside element declaration
+==================
+
+<div {{! Comment }}></div>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (comment_statement))
     (element_node_end
       (tag_name))))

@@ -117,6 +117,10 @@
           "named": true
         },
         {
+          "type": "comment_statement",
+          "named": true
+        },
+        {
           "type": "tag_name",
           "named": true
         }

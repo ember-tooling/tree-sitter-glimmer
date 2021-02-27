@@ -7,6 +7,15 @@
         "type": "CHOICE",
         "members": [
           {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "comment"
+            },
+            "named": true,
+            "value": "comment_statement"
+          },
+          {
             "type": "SYMBOL",
             "name": "mustache_statement"
           },
@@ -121,6 +130,15 @@
                   {
                     "type": "SYMBOL",
                     "name": "element_node"
+                  },
+                  {
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "comment"
+                    },
+                    "named": true,
+                    "value": "comment_statement"
                   },
                   {
                     "type": "SYMBOL",
@@ -361,7 +379,12 @@
     }
   ],
   "conflicts": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "comment"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

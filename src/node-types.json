@@ -55,6 +55,10 @@
       "required": true,
       "types": [
         {
+          "type": "comment_statement",
+          "named": true
+        },
+        {
           "type": "element_node",
           "named": true
         },
@@ -210,6 +214,10 @@
       "required": false,
       "types": [
         {
+          "type": "comment_statement",
+          "named": true
+        },
+        {
           "type": "element_node",
           "named": true
         },
@@ -266,6 +274,10 @@
   },
   {
     "type": "attribute_name",
+    "named": true
+  },
+  {
+    "type": "comment_statement",
     "named": true
   },
   {

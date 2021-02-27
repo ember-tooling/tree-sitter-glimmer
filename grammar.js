@@ -1,10 +1,19 @@
 module.exports = grammar({
   name: "glimmer",
 
+  externals: ($) => [$.comment],
+
   rules: {
     // Entire file
     template: ($) =>
-      repeat(choice($.mustache_statement, $.element_node, $.text_node)),
+      repeat(
+        choice(
+          alias($.comment, $.comment_statement),
+          $.mustache_statement,
+          $.element_node,
+          $.text_node
+        )
+      ),
 
     //
     // Text
@@ -42,7 +51,14 @@ module.exports = grammar({
       choice(
         seq(
           $.element_node_start,
-          repeat(choice($.text_node, $.element_node, $.mustache_statement)),
+          repeat(
+            choice(
+              $.text_node,
+              $.element_node,
+              alias($.comment, $.comment_statement),
+              $.mustache_statement
+            )
+          ),
           $.element_node_end
         ),
         $.element_node_void

@@ -59,6 +59,10 @@
                 "name": "attribute_node"
               },
               {
+                "type": "SYMBOL",
+                "name": "mustache_statement"
+              },
+              {
                 "type": "ALIAS",
                 "content": {
                   "type": "SYMBOL",
@@ -175,7 +179,7 @@
     },
     "attribute_name": {
       "type": "PATTERN",
-      "value": "[^<>\"'/=\\s]+"
+      "value": "[^<>\"'/={}\\s]+"
     },
     "attribute_node": {
       "type": "SEQ",

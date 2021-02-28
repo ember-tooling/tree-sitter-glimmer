@@ -121,6 +121,10 @@
           "named": true
         },
         {
+          "type": "mustache_statement",
+          "named": true
+        },
+        {
           "type": "tag_name",
           "named": true
         }

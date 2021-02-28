@@ -22,3 +22,22 @@ Block Params
       (path_expression))
     (element_node_end
       (tag_name))))
+
+==================
+Modifiers
+==================
+
+<div {{on 'click' this.whatever}}></div>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (mustache_statement
+        (path_expression)
+        (string_literal)
+        (path_expression)))
+    (element_node_end
+      (tag_name))))

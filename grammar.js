@@ -37,7 +37,13 @@ module.exports = grammar({
       seq(
         "<",
         $.tag_name,
-        repeat(choice($.attribute_node, alias($.comment, $.comment_statement))),
+        repeat(
+          choice(
+            $.attribute_node,
+            $.mustache_statement,
+            alias($.comment, $.comment_statement)
+          )
+        ),
         optional($.block_params),
         ">"
       ),
@@ -64,7 +70,7 @@ module.exports = grammar({
         $.element_node_void
       ),
 
-    attribute_name: () => /[^<>"'/=\s]+/,
+    attribute_name: () => /[^<>"'/={}\s]+/,
 
     attribute_node: ($) =>
       seq(

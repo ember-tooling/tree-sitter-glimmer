@@ -11,6 +11,7 @@
 
 (string_literal) @string
 (number_literal) @number
+(boolean_literal) @boolean
 
 ; == Mustache Statements ===
 

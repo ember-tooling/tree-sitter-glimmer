@@ -1,0 +1,23 @@
+<foo
+ {{! <- @tag }}
+  string-attr="string"
+  {{! ^ @attribute }}
+  {{!        ^ @operator }}
+  {{!         ^ @string }}
+  number-attr=12
+  {{!         ^ @number }}
+  mustache-attr={{value}}
+  {{!             ^ @variable }}
+></foo>
+
+<MyComponent @foo={{bar}} as |whatever|>
+{{! ^ @tag }}
+{{!          ^ @attribute }}
+{{!                       ^ @keyword }}
+{{!                          ^ @operator }}
+{{!                                   ^ @operator }}
+  {{whatever}}
+</MyComponent>
+
+{{some-helper (sub-expression)}}
+{{!            ^ @variable }}

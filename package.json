@@ -21,11 +21,10 @@
   },
   "tree-sitter": [
     {
-      "scope": "text.html.glimmer",
+      "scope": "source.glimmer",
       "file-types": [
         "hbs"
       ],
-      "injections": "queries/injections-ejs.scm",
       "injection-regex": "hbs"
     }
   ],

@@ -1,4 +1,11 @@
-(tag_name) @tag
+; === Tag Names ===
+
+; Tags that start with a lower case letter are HTML tags
+((tag_name) @tag
+  (#match? @tag "^[a-z]"))
+; Tags that start with a capital letter are Glimmer components
+((tag_name) @constructor
+  (#match? @constructor "^[A-Z]"))
 
 (attribute_name) @attribute
 

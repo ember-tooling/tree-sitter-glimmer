@@ -14,12 +14,16 @@ Block Params
     (element_node_start
       (tag_name)
       (block_params
-        (path_expression)
-        (path_expression)))
+        (path_expression
+          (identifier))
+        (path_expression
+          (identifier))))
     (mustache_statement
-      (path_expression))
+      (path_expression
+        (identifier)))
     (mustache_statement
-      (path_expression))
+      (path_expression
+        (identifier)))
     (element_node_end
       (tag_name))))
 
@@ -36,8 +40,11 @@ Modifiers
     (element_node_start
       (tag_name)
       (mustache_statement
-        (path_expression)
+        (path_expression
+          (identifier))
         (string_literal)
-        (path_expression)))
+        (path_expression
+          (identifier)
+          (identifier))))
     (element_node_end
       (tag_name))))

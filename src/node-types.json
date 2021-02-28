@@ -180,7 +180,21 @@
   {
     "type": "path_expression",
     "named": true,
-    "fields": {}
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "helper_identifier",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "string_literal",
@@ -217,11 +231,6 @@
         }
       ]
     }
-  },
-  {
-    "type": "tag_name",
-    "named": true,
-    "fields": {}
   },
   {
     "type": "template",
@@ -267,6 +276,10 @@
     "named": false
   },
   {
+    "type": ".",
+    "named": false
+  },
+  {
     "type": "/>",
     "named": false
   },
@@ -303,7 +316,19 @@
     "named": false
   },
   {
+    "type": "helper_identifier",
+    "named": true
+  },
+  {
+    "type": "identifier",
+    "named": true
+  },
+  {
     "type": "number_literal",
+    "named": true
+  },
+  {
+    "type": "tag_name",
     "named": true
   },
   {

@@ -1,3 +1,6 @@
+
+{{!-- HTML Element --}}
+
 <foo
  {{! <- tag }}
   string-attr="string"
@@ -10,6 +13,20 @@
   {{!             ^ variable }}
 ></foo>
 
+
+
+{{!-- Path Expression --}}
+
+{{foo.bar}}
+{{! <- @tag.delimiter }}
+{{! ^ @variable }}
+{{!  ^ @tag.delimiter }}
+{{!   ^ @variable }}
+
+
+
+{{!-- Glimmer Component API --}}
+
 <MyComponent @foo={{bar}} as |whatever|>
 {{! ^ constructor }}
 {{!          ^ attribute }}
@@ -19,5 +36,22 @@
   {{whatever}}
 </MyComponent>
 
+
+
+{{!-- Helper Invocation --}}
+
 {{some-helper (sub-expression)}}
-{{!            ^ variable }}
+{{! ^ function }}
+{{!           ^ @tag.delimiter }}
+{{!            ^ function }}
+
+
+
+{{!-- Comments --}}
+
+{{! testing }}
+{{! <- comment }}
+<!-- testing -->
+{{! <- comment }}
+{{!-- testing --}}
+{{! <- comment }}

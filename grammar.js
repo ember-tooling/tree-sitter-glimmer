@@ -91,11 +91,12 @@ module.exports = grammar({
     _mustache_statement_start: () => "{{",
     _mustache_statement_end: () => "}}",
 
-    // Glimmer parses all of these as "path expressions"
-    // - Variables (foo)
-    // - Nested variable access (foo.bar_)
-    // - Helpers (foo-bar)
-    path_expression: () => /([a-zA-Z]|-|\.)+/,
+    path_expression: ($) =>
+      seq($._identifier, optional(seq(".", $._identifier))),
+
+    identifier: () => /([a-zA-Z])+/,
+    helper_identifier: () => /([a-zA-Z]|-)+/,
+    _identifier: ($) => choice($.helper_identifier, $.identifier),
 
     // Represents anything that can be a "value"; things like
     // - Strings

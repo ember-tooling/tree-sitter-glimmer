@@ -8,7 +8,9 @@ Variable Access
 
 (template
   (mustache_statement
-    (path_expression)))
+    (path_expression
+      (identifier)
+      (identifier))))
 
 ==================
 Helper Invocation
@@ -20,7 +22,8 @@ Helper Invocation
 
 (template
   (mustache_statement
-    (path_expression)))
+    (path_expression
+      (helper_identifier))))
 
 ==================
 Sub Expressions
@@ -32,9 +35,11 @@ Sub Expressions
 
 (template
   (mustache_statement
-    (path_expression)
+    (path_expression
+      (identifier))
     (sub_expression
-      (path_expression)
+      (path_expression
+        (identifier))
       (number_literal)
       (number_literal))
     (number_literal)))

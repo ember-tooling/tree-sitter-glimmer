@@ -257,8 +257,55 @@
       "value": "}}"
     },
     "path_expression": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "."
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "_identifier"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        }
+      ]
+    },
+    "identifier": {
       "type": "PATTERN",
-      "value": "([a-zA-Z]|-|\\.)+"
+      "value": "([a-zA-Z])+"
+    },
+    "helper_identifier": {
+      "type": "PATTERN",
+      "value": "([a-zA-Z]|-)+"
+    },
+    "_identifier": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "helper_identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        }
+      ]
     },
     "_value": {
       "type": "CHOICE",

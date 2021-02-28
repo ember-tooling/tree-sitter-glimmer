@@ -12,9 +12,15 @@
 (string_literal) @string
 (number_literal) @number
 
+; == Mustache Statements ===
+
+; Hightlight the whole statement, to color brackets and separators
 (mustache_statement) @tag.delimiter
-(mustache_statement (path_expression) @variable)
-(mustache_statement (sub_expression (path_expression) @variable))
+
+; Generic identifiers are variables
+(identifier) @variable
+; Helpers are functions
+(helper_identifier) @function
 
 (comment_statement) @comment
 

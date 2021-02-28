@@ -178,6 +178,11 @@
     }
   },
   {
+    "type": "path_expression",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "string_literal",
     "named": true,
     "fields": {}
@@ -212,6 +217,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "tag_name",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "template",
@@ -294,14 +304,6 @@
   },
   {
     "type": "number_literal",
-    "named": true
-  },
-  {
-    "type": "path_expression",
-    "named": true
-  },
-  {
-    "type": "tag_name",
     "named": true
   },
   {

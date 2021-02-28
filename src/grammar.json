@@ -36,7 +36,7 @@
     },
     "tag_name": {
       "type": "PATTERN",
-      "value": "([a-zA-Z]|-)+"
+      "value": "([a-zA-Z]|-|\\.)+"
     },
     "element_node_start": {
       "type": "SEQ",

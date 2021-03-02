@@ -12,6 +12,10 @@
           "named": true
         },
         {
+          "type": "concat_statement",
+          "named": true
+        },
+        {
           "type": "mustache_statement",
           "named": true
         },
@@ -45,6 +49,21 @@
     "type": "boolean_literal",
     "named": true,
     "fields": {}
+  },
+  {
+    "type": "concat_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "mustache_statement",
+          "named": true
+        }
+      ]
+    }
   },
   {
     "type": "element_node",

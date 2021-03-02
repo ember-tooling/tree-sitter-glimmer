@@ -202,8 +202,17 @@
                   "type": "CHOICE",
                   "members": [
                     {
+                      "type": "ALIAS",
+                      "content": {
+                        "type": "SYMBOL",
+                        "name": "_mustache_safe_string_literal"
+                      },
+                      "named": true,
+                      "value": "string_literal"
+                    },
+                    {
                       "type": "SYMBOL",
-                      "name": "string_literal"
+                      "name": "concat_statement"
                     },
                     {
                       "type": "SYMBOL",
@@ -221,6 +230,108 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "concat_statement": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_single_quote_concat_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_double_quote_concat_statement"
+        }
+      ]
+    },
+    "_single_quote_concat_statement": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "'"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mustache_statement"
+          },
+          {
+            "type": "STRING",
+            "value": "'"
+          }
+        ]
+      }
+    },
+    "_double_quote_concat_statement": {
+      "type": "PREC",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "\""
+          },
+          {
+            "type": "SYMBOL",
+            "name": "mustache_statement"
+          },
+          {
+            "type": "STRING",
+            "value": "\""
+          }
+        ]
+      }
+    },
+    "_mustache_safe_string_literal": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_mustache_safe_single_quote_string_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_mustache_safe_double_quote_string_literal"
+        }
+      ]
+    },
+    "_mustache_safe_single_quote_string_literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^'\\\\{]+"
+        },
+        {
+          "type": "STRING",
+          "value": "'"
+        }
+      ]
+    },
+    "_mustache_safe_double_quote_string_literal": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\"\\\\{]+"
+        },
+        {
+          "type": "STRING",
+          "value": "\""
         }
       ]
     },

@@ -73,3 +73,24 @@ No Value
         (attribute_name)))
     (element_node_end
       (tag_name))))
+
+==================
+Concat Statement Value
+==================
+
+<div class="{{bar}}"></div>
+
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)
+        (concat_statement
+          (mustache_statement
+            (path_expression
+              (identifier))))))
+    (element_node_end
+      (tag_name))))

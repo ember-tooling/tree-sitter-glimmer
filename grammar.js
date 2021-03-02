@@ -80,10 +80,35 @@ module.exports = grammar({
         optional(
           seq(
             "=",
-            choice($.string_literal, $.number_literal, $.mustache_statement)
+            choice(
+              alias($._mustache_safe_string_literal, $.string_literal),
+              $.concat_statement,
+              $.number_literal,
+              $.mustache_statement
+            )
           )
         )
       ),
+
+    // Special attribute-value strings that can embed a mustache statement
+    concat_statement: ($) =>
+      choice(
+        $._single_quote_concat_statement,
+        $._double_quote_concat_statement
+      ),
+
+    _single_quote_concat_statement: ($) =>
+      prec(1, seq("'", $.mustache_statement, "'")),
+    _double_quote_concat_statement: ($) =>
+      prec(1, seq('"', $.mustache_statement, '"')),
+
+    _mustache_safe_string_literal: ($) =>
+      choice(
+        $._mustache_safe_single_quote_string_literal,
+        $._mustache_safe_double_quote_string_literal
+      ),
+    _mustache_safe_single_quote_string_literal: () => seq("'", /[^'\\{]+/, "'"),
+    _mustache_safe_double_quote_string_literal: () => seq('"', /[^"\\{]+/, '"'),
 
     block_params: ($) => seq("as", "|", repeat($.path_expression), "|"),
 

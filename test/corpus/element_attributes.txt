@@ -20,7 +20,7 @@ String Value
       (tag_name))))
 
 ==================
-String Value
+Number Value
 ==================
 
 <div tabindex=1></div>

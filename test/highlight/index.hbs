@@ -4,7 +4,7 @@
 <foo
  {{! <- tag }}
   string-attr="string"
-  {{! ^ attribute }}
+  {{! ^ property }}
   {{!        ^ operator }}
   {{!         ^ string }}
   number-attr=12
@@ -42,7 +42,7 @@
 
 <MyComponent @foo={{bar}} as |whatever|>
 {{! ^ constructor }}
-{{!          ^ attribute }}
+{{!          ^ property }}
 {{!                       ^ keyword }}
 {{!                          ^ operator }}
 {{!                                   ^ operator }}

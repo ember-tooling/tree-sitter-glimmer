@@ -7,7 +7,7 @@
 ((tag_name) @constructor
   (#match? @constructor "^[A-Z]"))
 
-(attribute_name) @attribute
+(attribute_name) @property
 
 (string_literal) @string
 (number_literal) @number

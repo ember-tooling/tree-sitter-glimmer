@@ -7,7 +7,7 @@
         "src"
       ],
       "sources": [
-        "bindings/node/binding.cc",
+        "src/binding.cc",
         "src/parser.c",
         "src/scanner.c"
       ],

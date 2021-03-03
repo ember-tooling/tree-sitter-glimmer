@@ -624,10 +624,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-tree-sitter-cli@^0.19.0:
-  version "0.19.0"
-  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.19.0.tgz#c639a3ff02f858e02e90db4c835707c297a1e4f1"
-  integrity sha512-Wd4DaSG/+ndIFIbSMKmpsUZ+bGbmGtF4RZYIUPvXa1XHQuUGfGi4Z2P4T25ccyOBEw+9TE2plrIN07oROtMHHw==
+tree-sitter-cli@^0.18.0:
+  version "0.18.0"
+  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.18.0.tgz#15ef38d17ceccc69fbfb2ffe4e2082421afe3a27"
+  integrity sha512-84cxdTVXpVZrfXTvr4wtjG4zLWcUoaRLhgzDinW/84FHEv12mtVfRndV3QV7omTzdzWWDvpfshPfkCOOZWEdog==
 
 tslib@^1.9.0:
   version "1.14.1"

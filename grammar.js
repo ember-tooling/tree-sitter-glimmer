@@ -20,10 +20,9 @@ module.exports = grammar({
     //
 
     // Match anything that doesn't start with
-    // - Whitespace
     // - An open/close HTML delimiter (<, >)
     // - An open/close Mustache delimiter ({, })
-    text_node: () => /[^<>{}\s]+/,
+    text_node: () => token(/[^<>{}]+/),
 
     //
     // HTML Elements

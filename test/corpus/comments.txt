@@ -1,9 +1,7 @@
 ==================
 HTML Comments
 ==================
-
 <!-- This is the comment -->
-
 ---
 
 (template
@@ -12,10 +10,8 @@ HTML Comments
 ==================
 HBS Multi-Line Comments
 ==================
-
 {{!-- This is a
       multi-line comment --}}
-
 ---
 
 (template
@@ -24,9 +20,7 @@ HBS Multi-Line Comments
 ==================
 HBS Single-Line Comments
 ==================
-
 {{! This is a multi-line comment }}
-
 ---
 
 (template
@@ -35,10 +29,8 @@ HBS Single-Line Comments
 ==================
 HBS Single-Line Comments with Line Break
 ==================
-
 {{! This
     breaks }}
-
 ---
 
 (template
@@ -52,11 +44,7 @@ HBS Single-Line Comments with Line Break
 ==================
 Comment as element child
 ==================
-
-<div>
-  {{! Comment }}
-</div>
-
+<div>{{! Comment }}</div>
 ---
 
 (template
@@ -70,9 +58,7 @@ Comment as element child
 ==================
 Comment inside element declaration
 ==================
-
 <div {{! Comment }}></div>
-
 ---
 
 (template

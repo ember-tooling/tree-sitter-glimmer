@@ -1,9 +1,7 @@
 ==================
 Double-Quote String
 ==================
-
 {{"foo"}}
-
 ---
 
 (template
@@ -13,9 +11,7 @@ Double-Quote String
 ==================
 Single-Quote String
 ==================
-
 {{'foo'}}
-
 ---
 
 (template
@@ -25,9 +21,7 @@ Single-Quote String
 ==================
 Number
 ==================
-
 {{12}}
-
 ---
 
 (template
@@ -37,15 +31,13 @@ Number
 ==================
 Boolean
 ==================
-
 {{true}}
-
 {{false}}
-
 ---
 
 (template
   (mustache_statement
     (boolean_literal))
+  (text_node)
   (mustache_statement
     (boolean_literal)))

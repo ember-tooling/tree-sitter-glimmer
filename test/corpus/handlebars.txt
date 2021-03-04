@@ -1,9 +1,7 @@
 ==================
 Variable Access
 ==================
-
 {{someVariable.nestedProperty}}
-
 ---
 
 (template
@@ -15,9 +13,7 @@ Variable Access
 ==================
 Helper Invocation
 ==================
-
 {{some-helper}}
-
 ---
 
 (template
@@ -28,9 +24,7 @@ Helper Invocation
 ==================
 Sub Expressions
 ==================
-
 {{eq (add 1 2) 3}}
-
 ---
 
 (template

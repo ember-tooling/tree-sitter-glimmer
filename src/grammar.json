@@ -32,7 +32,7 @@
     },
     "text_node": {
       "type": "PATTERN",
-      "value": "[^<>{}\\s]+"
+      "value": "[^<>{}]+"
     },
     "tag_name": {
       "type": "PATTERN",

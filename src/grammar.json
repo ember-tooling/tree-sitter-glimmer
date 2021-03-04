@@ -26,6 +26,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "block_statement"
+        },
+        {
+          "type": "SYMBOL",
           "name": "element_node"
         },
         {
@@ -206,6 +210,31 @@
               "type": "BLANK"
             }
           ]
+        }
+      ]
+    },
+    "_hash_pair": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "key",
+          "content": {
+            "type": "SYMBOL",
+            "name": "attribute_name"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "FIELD",
+          "name": "value",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_value"
+          }
         }
       ]
     },
@@ -480,6 +509,99 @@
         {
           "type": "STRING",
           "value": ")"
+        }
+      ]
+    },
+    "block_statement_start": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_mustache_statement_start"
+        },
+        {
+          "type": "STRING",
+          "value": "#"
+        },
+        {
+          "type": "FIELD",
+          "name": "path",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_value"
+          }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "block_params"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_mustache_statement_end"
+        }
+      ]
+    },
+    "block_statement_end": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_mustache_statement_start"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "FIELD",
+          "name": "path",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_mustache_statement_end"
+        }
+      ]
+    },
+    "block_statement": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "block_statement_start"
+        },
+        {
+          "type": "FIELD",
+          "name": "program",
+          "content": {
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_declaration"
+            }
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_statement_end"
         }
       ]
     },

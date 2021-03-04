@@ -12,6 +12,7 @@ module.exports = grammar({
       choice(
         alias($.comment, $.comment_statement),
         $.mustache_statement,
+        $.block_statement,
         $.element_node,
         $.text_node
       ),
@@ -73,6 +74,9 @@ module.exports = grammar({
           )
         )
       ),
+
+    _hash_pair: ($) =>
+      seq(field("key", $.attribute_name), "=", field("value", $._value)),
 
     // Special attribute-value strings that can embed a mustache statement
     concat_statement: ($) =>
@@ -151,6 +155,35 @@ module.exports = grammar({
       ),
 
     sub_expression: ($) => seq("(", repeat($._value), ")"),
+
+    //
+    // Block Expression
+    //
+
+    block_statement_start: ($) =>
+      seq(
+        $._mustache_statement_start,
+        "#",
+        field("path", $.identifier),
+        repeat($._value),
+        optional($.block_params),
+        $._mustache_statement_end
+      ),
+
+    block_statement_end: ($) =>
+      seq(
+        $._mustache_statement_start,
+        "/",
+        field("path", $.identifier),
+        $._mustache_statement_end
+      ),
+
+    block_statement: ($) =>
+      seq(
+        $.block_statement_start,
+        field("program", repeat($._declaration)),
+        $.block_statement_end
+      ),
 
     //
     // Primitives

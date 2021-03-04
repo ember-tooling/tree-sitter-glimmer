@@ -42,6 +42,114 @@
     }
   },
   {
+    "type": "block_statement",
+    "named": true,
+    "fields": {
+      "program": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "block_statement",
+            "named": true
+          },
+          {
+            "type": "comment_statement",
+            "named": true
+          },
+          {
+            "type": "element_node",
+            "named": true
+          },
+          {
+            "type": "mustache_statement",
+            "named": true
+          },
+          {
+            "type": "text_node",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block_statement_end",
+          "named": true
+        },
+        {
+          "type": "block_statement_start",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "block_statement_end",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "block_statement_start",
+    "named": true,
+    "fields": {
+      "path": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block_params",
+          "named": true
+        },
+        {
+          "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "number_literal",
+          "named": true
+        },
+        {
+          "type": "path_expression",
+          "named": true
+        },
+        {
+          "type": "string_literal",
+          "named": true
+        },
+        {
+          "type": "sub_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "boolean_literal",
     "named": true,
     "fields": {}
@@ -69,6 +177,10 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "block_statement",
+          "named": true
+        },
         {
           "type": "comment_statement",
           "named": true
@@ -256,6 +368,10 @@
       "required": false,
       "types": [
         {
+          "type": "block_statement",
+          "named": true
+        },
+        {
           "type": "comment_statement",
           "named": true
         },
@@ -279,6 +395,10 @@
     "named": false
   },
   {
+    "type": "#",
+    "named": false
+  },
+  {
     "type": "'",
     "named": false
   },
@@ -292,6 +412,10 @@
   },
   {
     "type": ".",
+    "named": false
+  },
+  {
+    "type": "/",
     "named": false
   },
   {

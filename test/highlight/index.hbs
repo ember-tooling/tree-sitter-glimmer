@@ -66,6 +66,33 @@
 
 
 
+{{!-- Block Statements --}}
+
+{{#if condition}}
+{{! <- @tag.delimiter }}
+{{! ^ conditional }}
+{{!   ^ variable }}
+{{/if}}
+{{! <- @tag.delimiter }}
+{{! ^ conditional }}
+
+{{#each array as |item|}}
+{{! <- @tag.delimiter }}
+{{! ^ conditional }}
+{{!     ^ variable }}
+{{!           ^ keyword }}
+{{!              ^ operator }}
+{{!               ^ variable }}
+{{!                   ^ operator }}
+{{/each}}
+{{! <- @tag.delimiter }}
+{{! ^ conditional }}
+
+{{#let (or "first" "second") as |result|}}
+{{! ^ conditional }}
+{{/let}}
+{{! ^ conditional }}
+
 {{!-- Comments --}}
 
 {{! testing }}

@@ -1,0 +1,49 @@
+==================
+If Statement
+==================
+{{#if condition}}
+  Content!
+{{/if}}
+---
+
+(template
+  (block_statement
+    (block_statement_start
+      path: (identifier)
+      (path_expression
+        (identifier)))
+    program: (text_node)
+    (block_statement_end
+      path: (identifier))))
+
+==================
+Each Statement
+==================
+{{#each array as |item index|}}
+  {{item}}
+  {{index}}
+{{/each}}
+---
+
+(template
+  (block_statement
+    (block_statement_start
+      path: (identifier)
+      (path_expression
+        (identifier))
+      (block_params
+        (path_expression
+          (identifier))
+        (path_expression
+          (identifier))))
+    program: (text_node)
+    program: (mustache_statement
+      (path_expression
+        (identifier)))
+    program: (text_node)
+    program: (mustache_statement
+      (path_expression
+        (identifier)))
+    program: (text_node)
+    (block_statement_end
+      path: (identifier))))

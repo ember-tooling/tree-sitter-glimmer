@@ -80,12 +80,7 @@ module.exports = grammar({
         optional(
           seq(
             "=",
-            choice(
-              alias($._mustache_safe_string_literal, $.string_literal),
-              $.concat_statement,
-              $.number_literal,
-              $.mustache_statement
-            )
+            choice($.concat_statement, $.number_literal, $.mustache_statement)
           )
         )
       ),
@@ -98,17 +93,39 @@ module.exports = grammar({
       ),
 
     _single_quote_concat_statement: ($) =>
-      prec(1, seq("'", $.mustache_statement, "'")),
+      seq(
+        "'",
+        repeat(
+          choice(
+            $._mustache_safe_single_quote_string_literal_content,
+            $.mustache_statement
+          )
+        ),
+        "'"
+      ),
     _double_quote_concat_statement: ($) =>
-      prec(1, seq('"', $.mustache_statement, '"')),
+      seq(
+        '"',
+        repeat(
+          choice(
+            $._mustache_safe_double_quote_string_literal_content,
+            $.mustache_statement
+          )
+        ),
+        '"'
+      ),
 
     _mustache_safe_string_literal: ($) =>
       choice(
         $._mustache_safe_single_quote_string_literal,
         $._mustache_safe_double_quote_string_literal
       ),
-    _mustache_safe_single_quote_string_literal: () => seq("'", /[^'\\{]+/, "'"),
-    _mustache_safe_double_quote_string_literal: () => seq('"', /[^"\\{]+/, '"'),
+    _mustache_safe_single_quote_string_literal_content: () => /[^'\\{]+/,
+    _mustache_safe_single_quote_string_literal: ($) =>
+      seq("'", $._mustache_safe_single_quote_string_literal_content, "'"),
+    _mustache_safe_double_quote_string_literal_content: () => /[^"\\{]+/,
+    _mustache_safe_double_quote_string_literal: ($) =>
+      seq('"', $._mustache_safe_double_quote_string_literal_content, '"'),
 
     block_params: ($) => seq("as", "|", repeat($.path_expression), "|"),
 

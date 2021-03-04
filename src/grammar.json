@@ -202,15 +202,6 @@
                   "type": "CHOICE",
                   "members": [
                     {
-                      "type": "ALIAS",
-                      "content": {
-                        "type": "SYMBOL",
-                        "name": "_mustache_safe_string_literal"
-                      },
-                      "named": true,
-                      "value": "string_literal"
-                    },
-                    {
                       "type": "SYMBOL",
                       "name": "concat_statement"
                     },
@@ -247,46 +238,62 @@
       ]
     },
     "_single_quote_concat_statement": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "'"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mustache_statement"
-          },
-          {
-            "type": "STRING",
-            "value": "'"
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "'"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_mustache_safe_single_quote_string_literal_content"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "mustache_statement"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "STRING",
+          "value": "'"
+        }
+      ]
     },
     "_double_quote_concat_statement": {
-      "type": "PREC",
-      "value": 1,
-      "content": {
-        "type": "SEQ",
-        "members": [
-          {
-            "type": "STRING",
-            "value": "\""
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mustache_statement"
-          },
-          {
-            "type": "STRING",
-            "value": "\""
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "\""
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "_mustache_safe_double_quote_string_literal_content"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "mustache_statement"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "type": "STRING",
+          "value": "\""
+        }
+      ]
     },
     "_mustache_safe_string_literal": {
       "type": "CHOICE",
@@ -301,6 +308,10 @@
         }
       ]
     },
+    "_mustache_safe_single_quote_string_literal_content": {
+      "type": "PATTERN",
+      "value": "[^'\\\\{]+"
+    },
     "_mustache_safe_single_quote_string_literal": {
       "type": "SEQ",
       "members": [
@@ -309,14 +320,18 @@
           "value": "'"
         },
         {
-          "type": "PATTERN",
-          "value": "[^'\\\\{]+"
+          "type": "SYMBOL",
+          "name": "_mustache_safe_single_quote_string_literal_content"
         },
         {
           "type": "STRING",
           "value": "'"
         }
       ]
+    },
+    "_mustache_safe_double_quote_string_literal_content": {
+      "type": "PATTERN",
+      "value": "[^\"\\\\{]+"
     },
     "_mustache_safe_double_quote_string_literal": {
       "type": "SEQ",
@@ -326,8 +341,8 @@
           "value": "\""
         },
         {
-          "type": "PATTERN",
-          "value": "[^\"\\\\{]+"
+          "type": "SYMBOL",
+          "name": "_mustache_safe_double_quote_string_literal_content"
         },
         {
           "type": "STRING",

@@ -13,6 +13,8 @@
 (number_literal) @number
 (boolean_literal) @boolean
 
+(concat_statement) @string
+
 ; == Mustache Statements ===
 
 ; Hightlight the whole statement, to color brackets and separators

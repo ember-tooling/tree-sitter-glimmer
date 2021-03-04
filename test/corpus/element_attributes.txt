@@ -12,10 +12,10 @@ String Value
       (tag_name)
       (attribute_node
         (attribute_name)
-        (string_literal))
+        (concat_statement))
       (attribute_node
         (attribute_name)
-        (string_literal)))
+        (concat_statement)))
     (element_node_end
       (tag_name))))
 
@@ -79,6 +79,9 @@ Concat Statement Value
 ==================
 
 <div class="{{bar}}"></div>
+<div class="prefix {{bar}}"></div>
+<div class="prefix {{bar}} suffix"></div>
+<div class="prefix {{bar}} suffix {{bar}}"></div>
 
 ---
 
@@ -89,6 +92,42 @@ Concat Statement Value
       (attribute_node
         (attribute_name)
         (concat_statement
+          (mustache_statement
+            (path_expression
+              (identifier))))))
+    (element_node_end
+      (tag_name)))
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)
+        (concat_statement
+          (mustache_statement
+            (path_expression
+              (identifier))))))
+    (element_node_end
+      (tag_name)))
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)
+        (concat_statement
+          (mustache_statement
+            (path_expression
+              (identifier))))))
+    (element_node_end
+      (tag_name)))
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)
+        (concat_statement
+          (mustache_statement
+            (path_expression
+              (identifier)))
           (mustache_statement
             (path_expression
               (identifier))))))

@@ -22,10 +22,6 @@
         {
           "type": "number_literal",
           "named": true
-        },
-        {
-          "type": "string_literal",
-          "named": true
         }
       ]
     }
@@ -55,8 +51,8 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
-      "required": true,
+      "multiple": true,
+      "required": false,
       "types": [
         {
           "type": "mustache_statement",

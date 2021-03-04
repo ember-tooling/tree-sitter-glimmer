@@ -12,10 +12,8 @@ Block Params
     (element_node_start
       (tag_name)
       (block_params
-        (path_expression
-          (identifier))
-        (path_expression
-          (identifier))))
+        (identifier)
+        (identifier)))
     (text_node)
     (mustache_statement
       (path_expression

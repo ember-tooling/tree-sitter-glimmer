@@ -32,10 +32,8 @@ Each Statement
       (path_expression
         (identifier))
       (block_params
-        (path_expression
-          (identifier))
-        (path_expression
-          (identifier))))
+        (identifier)
+        (identifier)))
     program: (text_node)
     program: (mustache_statement
       (path_expression

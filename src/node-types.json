@@ -35,7 +35,7 @@
       "required": false,
       "types": [
         {
-          "type": "path_expression",
+          "type": "identifier",
           "named": true
         }
       ]

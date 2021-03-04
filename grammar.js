@@ -120,7 +120,7 @@ module.exports = grammar({
     _mustache_safe_double_quote_string_literal: ($) =>
       seq('"', $._mustache_safe_double_quote_string_literal_content, '"'),
 
-    block_params: ($) => seq("as", "|", repeat($.path_expression), "|"),
+    block_params: ($) => seq("as", "|", repeat($.identifier), "|"),
 
     // Entering/existing Handlebars expressions
     _mustache_statement_start: () => "{{",

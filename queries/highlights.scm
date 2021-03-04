@@ -34,6 +34,7 @@
 
 ; Generic identifiers are variables
 (path_expression (identifier) @variable)
+(block_params (identifier) @variable)
 ; Helpers are functions
 (helper_identifier) @function
 

@@ -23,6 +23,33 @@ jobs:
         run: yarn install
       - run: yarn prettier --check "**/*.js"
 
+  generate:
+    name: Parser Generation
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: volta-cli/action@v1
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v1
+        id: yarn-cache
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - name: Install Dependencies
+        run: yarn install
+      - name: Generate parser from source code
+        run: yarn generate
+      - name: Check if there are changes
+        id: git-changes
+        uses: UnicornGlobal/has-changes-action@v1.0.11
+      - name: Fail if there are changes
+        if: steps.git-changes.outputs.changed == 1
+        run: exit 1
+
   test:
     name: Test
     runs-on: ubuntu-latest

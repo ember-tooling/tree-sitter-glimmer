@@ -32,11 +32,20 @@
 ; Hightlight the whole statement, to color brackets and separators
 (mustache_statement) @tag.delimiter
 
-; Generic identifiers are variables
-(path_expression (identifier) @variable)
+; An identifier in a mustache expression is a variable
+(mustache_statement (path_expression (identifier) @variable))
+; As are arguments in a block statement
+(block_statement_start (path_expression (identifier) @variable))
+; As is an identifier in a block param
 (block_params (identifier) @variable)
+; As are helper arguments
+(helper_invocation argument: (path_expression (identifier) @variable))
+
 ; Helpers are functions
-(helper_identifier) @function
+((helper_invocation helper: (path_expression (identifier) @function))
+  (#not-match? @function "if"))
+((helper_invocation helper: (path_expression (identifier) @conditional))
+  (#match? @conditional "if"))
 
 (comment_statement) @comment
 

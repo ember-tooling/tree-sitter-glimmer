@@ -126,12 +126,9 @@ module.exports = grammar({
     _mustache_statement_start: () => "{{",
     _mustache_statement_end: () => "}}",
 
-    path_expression: ($) =>
-      seq($._identifier, optional(seq(".", $._identifier))),
+    path_expression: ($) => seq($.identifier, optional(seq(".", $.identifier))),
 
-    identifier: () => /([a-zA-Z])+/,
-    helper_identifier: () => /([a-zA-Z]|-)+/,
-    _identifier: ($) => choice($.helper_identifier, $.identifier),
+    identifier: () => /([a-zA-Z]|-)+/,
 
     // Represents anything that can be a "value"; things like
     // - Strings
@@ -150,11 +147,17 @@ module.exports = grammar({
     mustache_statement: ($) =>
       seq(
         $._mustache_statement_start,
-        repeat($._value),
+        choice($._value, $.helper_invocation),
         $._mustache_statement_end
       ),
 
-    sub_expression: ($) => seq("(", repeat($._value), ")"),
+    helper_invocation: ($) =>
+      seq(
+        field("helper", $.path_expression),
+        field("argument", repeat1($._value))
+      ),
+
+    sub_expression: ($) => seq("(", choice($._value, $.helper_invocation), ")"),
 
     //
     // Block Expression

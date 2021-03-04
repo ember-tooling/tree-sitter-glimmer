@@ -274,15 +274,61 @@
     }
   },
   {
+    "type": "helper_invocation",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "path_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "sub_expression",
+            "named": true
+          }
+        ]
+      },
+      "helper": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "path_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "mustache_statement",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
           "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "helper_invocation",
           "named": true
         },
         {
@@ -313,10 +359,6 @@
       "required": true,
       "types": [
         {
-          "type": "helper_identifier",
-          "named": true
-        },
-        {
           "type": "identifier",
           "named": true
         }
@@ -333,11 +375,15 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
-      "required": false,
+      "multiple": false,
+      "required": true,
       "types": [
         {
           "type": "boolean_literal",
+          "named": true
+        },
+        {
+          "type": "helper_invocation",
           "named": true
         },
         {
@@ -453,10 +499,6 @@
   {
     "type": "false",
     "named": false
-  },
-  {
-    "type": "helper_identifier",
-    "named": true
   },
   {
     "type": "identifier",

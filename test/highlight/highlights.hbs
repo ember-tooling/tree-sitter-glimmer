@@ -16,6 +16,8 @@
   {{!                 ^ tag.delimiter }}
   {{!                   ^ variable }}
   class="foo {{if condition "bar"}}"
+  {{!          ^ conditional }}
+  {{!             ^ variable }}
   {{!                       ^ string }}
 ></foo>
 
@@ -59,10 +61,11 @@
 
 {{!-- Helper Invocation --}}
 
-{{some-helper (sub-expression)}}
+{{some-helper (sub-expression argument)}}
 {{! ^ function }}
 {{!           ^ @tag.delimiter }}
 {{!            ^ function }}
+{{!                           ^ variable }}
 
 
 

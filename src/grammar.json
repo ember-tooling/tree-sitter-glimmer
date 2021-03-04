@@ -401,7 +401,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_identifier"
+          "name": "identifier"
         },
         {
           "type": "CHOICE",
@@ -415,7 +415,7 @@
                 },
                 {
                   "type": "SYMBOL",
-                  "name": "_identifier"
+                  "name": "identifier"
                 }
               ]
             },
@@ -428,24 +428,7 @@
     },
     "identifier": {
       "type": "PATTERN",
-      "value": "([a-zA-Z])+"
-    },
-    "helper_identifier": {
-      "type": "PATTERN",
       "value": "([a-zA-Z]|-)+"
-    },
-    "_identifier": {
-      "type": "CHOICE",
-      "members": [
-        {
-          "type": "SYMBOL",
-          "name": "helper_identifier"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        }
-      ]
     },
     "_value": {
       "type": "CHOICE",
@@ -480,15 +463,45 @@
           "name": "_mustache_statement_start"
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_value"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_value"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "helper_invocation"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
           "name": "_mustache_statement_end"
+        }
+      ]
+    },
+    "helper_invocation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "helper",
+          "content": {
+            "type": "SYMBOL",
+            "name": "path_expression"
+          }
+        },
+        {
+          "type": "FIELD",
+          "name": "argument",
+          "content": {
+            "type": "REPEAT1",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_value"
+            }
+          }
         }
       ]
     },
@@ -500,11 +513,17 @@
           "value": "("
         },
         {
-          "type": "REPEAT",
-          "content": {
-            "type": "SYMBOL",
-            "name": "_value"
-          }
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_value"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "helper_invocation"
+            }
+          ]
         },
         {
           "type": "STRING",

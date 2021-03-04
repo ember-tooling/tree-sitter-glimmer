@@ -73,7 +73,7 @@ Concat Statement Value
 <div class="prefix {{bar}}"></div>
 <div class="prefix {{bar}} suffix"></div>
 <div class="prefix {{bar}} suffix {{bar}}"></div>
-<div class="prefix {{if condition "foo" "bar"}}"></div>
+<div class="prefix {{"foo"}}"></div>
 ---
 
 (template
@@ -135,11 +135,6 @@ Concat Statement Value
         (attribute_name)
         (concat_statement
           (mustache_statement
-            (path_expression
-              (identifier))
-            (path_expression
-              (identifier))
-            (string_literal)
             (string_literal)))))
     (element_node_end
       (tag_name))))

@@ -37,11 +37,12 @@ Modifiers
     (element_node_start
       (tag_name)
       (mustache_statement
-        (path_expression
-          (identifier))
-        (string_literal)
-        (path_expression
-          (identifier)
-          (identifier))))
+        (helper_invocation
+          helper: (path_expression
+            (identifier))
+          argument: (string_literal)
+          argument: (path_expression
+            (identifier)
+            (identifier)))))
     (element_node_end
       (tag_name))))

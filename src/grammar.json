@@ -4,35 +4,42 @@
     "template": {
       "type": "REPEAT",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "ALIAS",
-            "content": {
-              "type": "SYMBOL",
-              "name": "comment"
-            },
-            "named": true,
-            "value": "comment_statement"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "mustache_statement"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "element_node"
-          },
-          {
-            "type": "SYMBOL",
-            "name": "text_node"
-          }
-        ]
+        "type": "SYMBOL",
+        "name": "_declaration"
       }
     },
+    "_declaration": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "comment"
+          },
+          "named": true,
+          "value": "comment_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "mustache_statement"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "element_node"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "text_node"
+        }
+      ]
+    },
     "text_node": {
-      "type": "PATTERN",
-      "value": "[^<>{}]+"
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[^<>{}]+"
+      }
     },
     "tag_name": {
       "type": "PATTERN",
@@ -139,30 +146,8 @@
             {
               "type": "REPEAT",
               "content": {
-                "type": "CHOICE",
-                "members": [
-                  {
-                    "type": "SYMBOL",
-                    "name": "text_node"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "element_node"
-                  },
-                  {
-                    "type": "ALIAS",
-                    "content": {
-                      "type": "SYMBOL",
-                      "name": "comment"
-                    },
-                    "named": true,
-                    "value": "comment_statement"
-                  },
-                  {
-                    "type": "SYMBOL",
-                    "name": "mustache_statement"
-                  }
-                ]
+                "type": "SYMBOL",
+                "name": "_declaration"
               }
             },
             {

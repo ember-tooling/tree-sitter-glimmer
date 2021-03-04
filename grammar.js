@@ -5,14 +5,15 @@ module.exports = grammar({
 
   rules: {
     // Entire file
-    template: ($) =>
-      repeat(
-        choice(
-          alias($.comment, $.comment_statement),
-          $.mustache_statement,
-          $.element_node,
-          $.text_node
-        )
+    template: ($) => repeat($._declaration),
+
+    // Each individual "thing" in the file
+    _declaration: ($) =>
+      choice(
+        alias($.comment, $.comment_statement),
+        $.mustache_statement,
+        $.element_node,
+        $.text_node
       ),
 
     //
@@ -56,18 +57,7 @@ module.exports = grammar({
     // An "Element" is either a "normal" or "void" element
     element_node: ($) =>
       choice(
-        seq(
-          $.element_node_start,
-          repeat(
-            choice(
-              $.text_node,
-              $.element_node,
-              alias($.comment, $.comment_statement),
-              $.mustache_statement
-            )
-          ),
-          $.element_node_end
-        ),
+        seq($.element_node_start, repeat($._declaration), $.element_node_end),
         $.element_node_void
       ),
 

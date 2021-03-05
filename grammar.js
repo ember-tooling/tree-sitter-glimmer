@@ -33,7 +33,7 @@ module.exports = grammar({
     // Match a sequence of letters, plus
     // - Hyphens (for web components)
     // - Period (for contextual Glimmer components)
-    tag_name: () => /([a-zA-Z]|-|\.)+/,
+    tag_name: () => /([a-zA-Z0-9]|-|\.)+/,
 
     // "Normal" elements with separate opening and closing tags
     element_node_start: ($) =>

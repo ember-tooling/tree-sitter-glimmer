@@ -2,9 +2,16 @@
 HTML Element
 ==================
 <div></div>
+<h1></h1>
 ---
 
 (template
+  (element_node
+    (element_node_start
+      (tag_name))
+    (element_node_end
+      (tag_name)))
+  (text_node)
   (element_node
     (element_node_start
       (tag_name))

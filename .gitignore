@@ -4,3 +4,5 @@ node_modules
 # Build Output
 build
 
+# Generates Docs Output
+docs/*.html

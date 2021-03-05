@@ -1,5 +1,5 @@
 {
-  "parser-directories": ["~"],
+  "parser-directories": ["/home/runner/work/tree-sitter-glimmer"],
   "theme": {
     "tag": 18,
     "operator": {

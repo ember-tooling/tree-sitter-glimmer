@@ -1,12 +1,13 @@
 ==================
 Variable Access
 ==================
-{{someVariable.nestedProperty}}
+{{someVariable.nestedProperty.anotherNestedProperty}}
 ---
 
 (template
   (mustache_statement
     (path_expression
+      (identifier)
       (identifier)
       (identifier))))
 

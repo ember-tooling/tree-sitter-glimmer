@@ -126,7 +126,7 @@ module.exports = grammar({
     _mustache_statement_start: () => "{{",
     _mustache_statement_end: () => "}}",
 
-    path_expression: ($) => seq($.identifier, optional(seq(".", $.identifier))),
+    path_expression: ($) => seq($.identifier, repeat(seq(".", $.identifier))),
 
     identifier: () => /([a-zA-Z]|-)+/,
 

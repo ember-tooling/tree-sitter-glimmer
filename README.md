@@ -4,6 +4,10 @@
 
 [![Verify](https://github.com/alexlafroscia/tree-sitter-glimmer/actions/workflows/verify.yml/badge.svg)](https://github.com/alexlafroscia/tree-sitter-glimmer/actions/workflows/verify.yml)
 
+## Sample Highlighting
+
+Up-to-date sample highlighting can be found on the web page for this project [here](https://alexlafroscia.github.io/tree-sitter-glimmer/).
+
 ## Usage
 
 ### NeoVim

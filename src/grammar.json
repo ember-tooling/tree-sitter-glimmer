@@ -546,10 +546,14 @@
           }
         },
         {
-          "type": "REPEAT",
+          "type": "FIELD",
+          "name": "argument",
           "content": {
-            "type": "SYMBOL",
-            "name": "_value"
+            "type": "REPEAT",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_value"
+            }
           }
         },
         {

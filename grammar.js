@@ -168,7 +168,7 @@ module.exports = grammar({
         $._mustache_statement_start,
         "#",
         field("path", $.identifier),
-        repeat($._value),
+        field("argument", repeat($._value)),
         optional($.block_params),
         $._mustache_statement_end
       ),

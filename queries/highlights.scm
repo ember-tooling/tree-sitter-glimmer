@@ -36,7 +36,7 @@
 ((mustache_statement (path_expression (identifier) @variable))
   (#not-match? @variable "yield"))
 ; As are arguments in a block statement
-(block_statement_start (path_expression (identifier) @variable))
+(block_statement_start argument: (path_expression (identifier) @variable))
 ; As is an identifier in a block param
 (block_params (identifier) @variable)
 ; As are helper arguments

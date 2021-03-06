@@ -10,7 +10,7 @@ If Statement
   (block_statement
     (block_statement_start
       path: (identifier)
-      (path_expression
+      argument: (path_expression
         (identifier)))
     program: (text_node)
     (block_statement_end
@@ -29,7 +29,7 @@ Each Statement
   (block_statement
     (block_statement_start
       path: (identifier)
-      (path_expression
+      argument: (path_expression
         (identifier))
       (block_params
         (identifier)

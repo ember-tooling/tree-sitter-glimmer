@@ -46,8 +46,7 @@ Handlebars Value
       (attribute_node
         (attribute_name)
         (mustache_statement
-          (path_expression
-            (identifier)))))
+          (identifier))))
     (element_node_end
       (tag_name))))
 
@@ -84,8 +83,7 @@ Concat Statement Value
         (attribute_name)
         (concat_statement
           (mustache_statement
-            (path_expression
-              (identifier))))))
+            (identifier)))))
     (element_node_end
       (tag_name)))
   (text_node)
@@ -96,8 +94,7 @@ Concat Statement Value
         (attribute_name)
         (concat_statement
           (mustache_statement
-            (path_expression
-              (identifier))))))
+            (identifier)))))
     (element_node_end
       (tag_name)))
   (text_node)
@@ -108,8 +105,7 @@ Concat Statement Value
         (attribute_name)
         (concat_statement
           (mustache_statement
-            (path_expression
-              (identifier))))))
+            (identifier)))))
     (element_node_end
       (tag_name)))
   (text_node)
@@ -120,11 +116,9 @@ Concat Statement Value
         (attribute_name)
         (concat_statement
           (mustache_statement
-            (path_expression
-              (identifier)))
+            (identifier))
           (mustache_statement
-            (path_expression
-              (identifier))))))
+            (identifier)))))
     (element_node_end
       (tag_name)))
   (text_node)

@@ -37,9 +37,8 @@ HBS Single-Line Comments with Line Break
   (mustache_statement
     (ERROR (UNEXPECTED '!'))
     (helper_invocation
-      (path_expression
-        (identifier))
-        (path_expression (identifier)))))
+      (identifier)
+      (identifier))))
 
 ==================
 Comment as element child

@@ -50,8 +50,7 @@ Mustache Contents
       (tag_name))
     (text_node)
     (mustache_statement
-      (path_expression
-        (identifier)))
+      (identifier))
     (text_node)
     (element_node_end
       (tag_name))))

@@ -116,6 +116,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "number_literal",
             "named": true
           },
@@ -292,6 +296,10 @@
             "named": true
           },
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "number_literal",
             "named": true
           },
@@ -314,6 +322,10 @@
         "required": true,
         "types": [
           {
+            "type": "identifier",
+            "named": true
+          },
+          {
             "type": "path_expression",
             "named": true
           }
@@ -335,6 +347,10 @@
         },
         {
           "type": "helper_invocation",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -390,6 +406,10 @@
         },
         {
           "type": "helper_invocation",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {

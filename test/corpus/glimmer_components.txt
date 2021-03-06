@@ -16,12 +16,10 @@ Block Params
         (identifier)))
     (text_node)
     (mustache_statement
-      (path_expression
-        (identifier)))
+        (identifier))
     (text_node)
     (mustache_statement
-      (path_expression
-        (identifier)))
+        (identifier))
     (text_node)
     (element_node_end
       (tag_name))))
@@ -38,8 +36,7 @@ Modifiers
       (tag_name)
       (mustache_statement
         (helper_invocation
-          helper: (path_expression
-            (identifier))
+          helper: (identifier)
           argument: (string_literal)
           argument: (path_expression
             (identifier)

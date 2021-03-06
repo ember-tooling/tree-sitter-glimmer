@@ -396,6 +396,10 @@
       "type": "STRING",
       "value": "}}"
     },
+    "identifier": {
+      "type": "PATTERN",
+      "value": "([a-zA-Z]|-)+"
+    },
     "path_expression": {
       "type": "SEQ",
       "members": [
@@ -404,7 +408,7 @@
           "name": "identifier"
         },
         {
-          "type": "REPEAT",
+          "type": "REPEAT1",
           "content": {
             "type": "SEQ",
             "members": [
@@ -421,10 +425,6 @@
         }
       ]
     },
-    "identifier": {
-      "type": "PATTERN",
-      "value": "([a-zA-Z]|-)+"
-    },
     "_value": {
       "type": "CHOICE",
       "members": [
@@ -439,6 +439,10 @@
         {
           "type": "SYMBOL",
           "name": "boolean_literal"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         },
         {
           "type": "SYMBOL",
@@ -483,8 +487,17 @@
           "type": "FIELD",
           "name": "helper",
           "content": {
-            "type": "SYMBOL",
-            "name": "path_expression"
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "identifier"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "path_expression"
+              }
+            ]
           }
         },
         {

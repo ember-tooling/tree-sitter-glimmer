@@ -20,8 +20,7 @@ Helper Invocation
 (template
   (mustache_statement
     (helper_invocation
-      helper: (path_expression
-        (identifier))
+      helper: (identifier)
       argument: (string_literal))))
 
 ==================
@@ -33,12 +32,10 @@ Sub Expressions
 (template
   (mustache_statement
     (helper_invocation
-      helper: (path_expression
-        (identifier))
+      helper: (identifier)
       argument: (sub_expression
         (helper_invocation
-          helper: (path_expression
-            (identifier))
+          helper: (identifier)
           argument: (number_literal)
           argument: (number_literal)))
       argument: (number_literal))))

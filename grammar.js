@@ -126,9 +126,8 @@ module.exports = grammar({
     _mustache_statement_start: () => "{{",
     _mustache_statement_end: () => "}}",
 
-    path_expression: ($) => seq($.identifier, repeat(seq(".", $.identifier))),
-
     identifier: () => /([a-zA-Z]|-)+/,
+    path_expression: ($) => seq($.identifier, repeat1(seq(".", $.identifier))),
 
     // Represents anything that can be a "value"; things like
     // - Strings
@@ -140,6 +139,7 @@ module.exports = grammar({
         $.string_literal,
         $.number_literal,
         $.boolean_literal,
+        $.identifier,
         $.path_expression,
         $.sub_expression
       ),
@@ -153,7 +153,7 @@ module.exports = grammar({
 
     helper_invocation: ($) =>
       seq(
-        field("helper", $.path_expression),
+        field("helper", choice($.identifier, $.path_expression)),
         field("argument", repeat1($._value))
       ),
 

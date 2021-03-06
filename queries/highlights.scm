@@ -33,25 +33,37 @@
 (mustache_statement) @tag.delimiter
 
 ; An identifier in a mustache expression is a variable
-((mustache_statement (path_expression (identifier) @variable))
+((mustache_statement [
+  (path_expression (identifier) @variable)
+  (identifier) @variable
+  ])
   (#not-match? @variable "yield"))
 ; As are arguments in a block statement
-(block_statement_start argument: (path_expression (identifier) @variable))
+(block_statement_start argument: [
+  (path_expression (identifier) @variable)
+  (identifier) @variable
+  ])
 ; As is an identifier in a block param
 (block_params (identifier) @variable)
 ; As are helper arguments
-(helper_invocation argument: (path_expression (identifier) @variable))
+(helper_invocation argument: [
+  (path_expression (identifier) @variable)
+  (identifier) @variable
+  ])
 
 ; If the identifier is just "yield", it's a key-word
-((mustache_statement (path_expression (identifier) @keyword))
+((mustache_statement (identifier) @keyword)
   (#match? @keyword "yield"))
 
 ; Helpers are functions
-((helper_invocation helper: (path_expression (identifier) @function))
+((helper_invocation helper: [
+  (path_expression (identifier) @function)
+  (identifier) @function
+  ])
   (#not-match? @function "if|yield"))
-((helper_invocation helper: (path_expression (identifier) @conditional))
+((helper_invocation helper: (identifier) @conditional)
   (#match? @conditional "if"))
-((helper_invocation helper: (path_expression (identifier) @keyword))
+((helper_invocation helper: (identifier) @keyword)
   (#match? @keyword "yield"))
 
 (comment_statement) @comment

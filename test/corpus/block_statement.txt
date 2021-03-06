@@ -10,8 +10,7 @@ If Statement
   (block_statement
     (block_statement_start
       path: (identifier)
-      argument: (path_expression
-        (identifier)))
+      argument: (identifier))
     program: (text_node)
     (block_statement_end
       path: (identifier))))
@@ -29,19 +28,16 @@ Each Statement
   (block_statement
     (block_statement_start
       path: (identifier)
-      argument: (path_expression
-        (identifier))
+      argument: (identifier)
       (block_params
         (identifier)
         (identifier)))
     program: (text_node)
     program: (mustache_statement
-      (path_expression
-        (identifier)))
+      (identifier))
     program: (text_node)
     program: (mustache_statement
-      (path_expression
-        (identifier)))
+      (identifier))
     program: (text_node)
     (block_statement_end
       path: (identifier))))

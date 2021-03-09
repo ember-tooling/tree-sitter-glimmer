@@ -84,14 +84,16 @@
 {{! <- @tag.delimiter }}
 {{! ^ conditional }}
 
-{{#each array as |item|}}
+{{#each array key="@index" as |item|}}
 {{! <- @tag.delimiter }}
 {{! ^ conditional }}
 {{!     ^ variable }}
-{{!           ^ keyword }}
-{{!              ^ operator }}
-{{!               ^ variable }}
-{{!                   ^ operator }}
+{{!           ^ property }}
+{{!               ^ string }}
+{{!                        ^ keyword }}
+{{!                           ^ operator }}
+{{!                            ^ variable }}
+{{!                                ^ operator }}
 {{/each}}
 {{! <- @tag.delimiter }}
 {{! ^ conditional }}

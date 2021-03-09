@@ -14,14 +14,17 @@ Variable Access
 ==================
 Helper Invocation
 ==================
-{{some-helper "argument"}}
+{{some-helper argument key=value}}
 ---
 
 (template
   (mustache_statement
     (helper_invocation
       helper: (identifier)
-      argument: (string_literal))))
+      argument: (identifier)
+      (hash_pair
+        key: (identifier)
+        value: (identifier)))))
 
 ==================
 Sub Expressions

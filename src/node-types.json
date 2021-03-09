@@ -149,11 +149,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "block_params",
+          "named": true
+        },
+        {
+          "type": "hash_pair",
           "named": true
         }
       ]
@@ -284,12 +288,58 @@
     }
   },
   {
+    "type": "hash_pair",
+    "named": true,
+    "fields": {
+      "key": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "value": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "path_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "sub_expression",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "helper_invocation",
     "named": true,
     "fields": {
       "argument": {
         "multiple": true,
-        "required": true,
+        "required": false,
         "types": [
           {
             "type": "boolean_literal",
@@ -331,6 +381,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "hash_pair",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -467,10 +527,6 @@
     "named": false
   },
   {
-    "type": "#",
-    "named": false
-  },
-  {
     "type": "'",
     "named": false
   },
@@ -484,10 +540,6 @@
   },
   {
     "type": ".",
-    "named": false
-  },
-  {
-    "type": "/",
     "named": false
   },
   {
@@ -547,7 +599,23 @@
     "named": false
   },
   {
+    "type": "{{",
+    "named": false
+  },
+  {
+    "type": "{{#",
+    "named": false
+  },
+  {
+    "type": "{{/",
+    "named": false
+  },
+  {
     "type": "|",
+    "named": false
+  },
+  {
+    "type": "}}",
     "named": false
   }
 ]

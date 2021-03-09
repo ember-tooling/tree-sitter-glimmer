@@ -27,6 +27,21 @@ module.exports = grammar({
     text_node: () => token(/[^<>{}]+/),
 
     //
+    // Primitives
+    //
+
+    string_literal: ($) =>
+      choice($._single_quote_string_literal, $._double_quote_string_literal),
+    // https://github.com/tree-sitter/tree-sitter-javascript/blob/37af80d372ae9e2f5adc2c6321d5a34294dc348b/grammar.js#L826
+    _single_quote_string_literal: () => seq("'", /[^'\\]+/, "'"),
+    // https://github.com/tree-sitter/tree-sitter-javascript/blob/37af80d372ae9e2f5adc2c6321d5a34294dc348b/grammar.js#L818
+    _double_quote_string_literal: () => seq('"', /[^"\\]+/, '"'),
+
+    number_literal: () => /[0-9]+/,
+
+    boolean_literal: () => choice("true", "false"),
+
+    //
     // HTML Elements
     //
 
@@ -62,7 +77,7 @@ module.exports = grammar({
         $.element_node_void
       ),
 
-    attribute_name: () => /[^<>"'/={}\s]+/,
+    attribute_name: () => /[^<>"'/={}()\s\.,!?|]+/,
 
     attribute_node: ($) =>
       seq(
@@ -74,9 +89,6 @@ module.exports = grammar({
           )
         )
       ),
-
-    _hash_pair: ($) =>
-      seq(field("key", $.attribute_name), "=", field("value", $._value)),
 
     // Special attribute-value strings that can embed a mustache statement
     concat_statement: ($) =>
@@ -122,11 +134,7 @@ module.exports = grammar({
 
     block_params: ($) => seq("as", "|", repeat($.identifier), "|"),
 
-    // Entering/existing Handlebars expressions
-    _mustache_statement_start: () => "{{",
-    _mustache_statement_end: () => "}}",
-
-    identifier: () => /([a-zA-Z]|-)+/,
+    identifier: () => /[^<>"'/={}()\s\.,!|]+/,
     path_expression: ($) => seq($.identifier, repeat1(seq(".", $.identifier))),
 
     // Represents anything that can be a "value"; things like
@@ -134,30 +142,39 @@ module.exports = grammar({
     // - Numbers
     // - Variables
     // - Handlebars sub-expressions
-    _value: ($) =>
+    _expression: ($) =>
       choice(
+        prec(1, $.number_literal),
         $.string_literal,
-        $.number_literal,
         $.boolean_literal,
-        $.identifier,
+        $.sub_expression,
         $.path_expression,
-        $.sub_expression
+        $.identifier
       ),
 
+    hash_pair: ($) =>
+      seq(field("key", $.identifier), "=", field("value", $._expression)),
+
     mustache_statement: ($) =>
-      seq(
-        $._mustache_statement_start,
-        choice($._value, $.helper_invocation),
-        $._mustache_statement_end
+      seq("{{", choice($._expression, $.helper_invocation), "}}"),
+
+    sub_expression: ($) =>
+      seq("(", choice($._expression, $.helper_invocation), ")"),
+
+    // There *must* be either:
+    // - 1 or more positional argument and 0 or more hash pairs
+    // - 0 or more positional arguments and 1 or more hash pairs
+    _arguments: ($) =>
+      choice(
+        seq(repeat1(field("argument", $._expression)), repeat($.hash_pair)),
+        seq(repeat(field("argument", $._expression)), repeat1($.hash_pair))
       ),
 
     helper_invocation: ($) =>
       seq(
         field("helper", choice($.identifier, $.path_expression)),
-        field("argument", repeat1($._value))
+        $._arguments
       ),
-
-    sub_expression: ($) => seq("(", choice($._value, $.helper_invocation), ")"),
 
     //
     // Block Expression
@@ -165,21 +182,14 @@ module.exports = grammar({
 
     block_statement_start: ($) =>
       seq(
-        $._mustache_statement_start,
-        "#",
+        "{{#",
         field("path", $.identifier),
-        field("argument", repeat($._value)),
+        $._arguments,
         optional($.block_params),
-        $._mustache_statement_end
+        "}}"
       ),
 
-    block_statement_end: ($) =>
-      seq(
-        $._mustache_statement_start,
-        "/",
-        field("path", $.identifier),
-        $._mustache_statement_end
-      ),
+    block_statement_end: ($) => seq("{{/", field("path", $.identifier), "}}"),
 
     block_statement: ($) =>
       seq(
@@ -187,20 +197,5 @@ module.exports = grammar({
         field("program", repeat($._declaration)),
         $.block_statement_end
       ),
-
-    //
-    // Primitives
-    //
-
-    string_literal: ($) =>
-      choice($._single_quote_string_literal, $._double_quote_string_literal),
-    // https://github.com/tree-sitter/tree-sitter-javascript/blob/37af80d372ae9e2f5adc2c6321d5a34294dc348b/grammar.js#L826
-    _single_quote_string_literal: () => seq("'", /[^'\\]+/, "'"),
-    // https://github.com/tree-sitter/tree-sitter-javascript/blob/37af80d372ae9e2f5adc2c6321d5a34294dc348b/grammar.js#L818
-    _double_quote_string_literal: () => seq('"', /[^"\\]+/, '"'),
-
-    number_literal: () => /[\da-fA-F](_?[\da-fA-F])*/,
-
-    boolean_literal: () => choice("true", "false"),
   },
 });

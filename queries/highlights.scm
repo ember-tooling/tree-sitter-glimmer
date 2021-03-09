@@ -66,6 +66,8 @@
 ((helper_invocation helper: (identifier) @keyword)
   (#match? @keyword "yield"))
 
+(hash_pair key: (identifier) @property)
+
 (comment_statement) @comment
 
 (attribute_node "=" @operator)

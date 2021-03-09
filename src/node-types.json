@@ -277,9 +277,21 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "attribute_node",
+          "named": true
+        },
+        {
+          "type": "comment_statement",
+          "named": true
+        },
+        {
+          "type": "mustache_statement",
+          "named": true
+        },
         {
           "type": "tag_name",
           "named": true

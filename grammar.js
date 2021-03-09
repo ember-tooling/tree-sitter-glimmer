@@ -68,7 +68,19 @@ module.exports = grammar({
     element_node_end: ($) => seq("</", $.tag_name, ">"),
 
     // "Void" elements are self-closing
-    element_node_void: ($) => seq("<", $.tag_name, "/>"),
+    element_node_void: ($) =>
+      seq(
+        "<",
+        $.tag_name,
+        repeat(
+          choice(
+            $.attribute_node,
+            $.mustache_statement,
+            alias($.comment, $.comment_statement)
+          )
+        ),
+        "/>"
+      ),
 
     // An "Element" is either a "normal" or "void" element
     element_node: ($) =>

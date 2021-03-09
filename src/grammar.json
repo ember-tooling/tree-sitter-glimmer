@@ -196,6 +196,31 @@
           "name": "tag_name"
         },
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "attribute_node"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "mustache_statement"
+              },
+              {
+                "type": "ALIAS",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "comment"
+                },
+                "named": true,
+                "value": "comment_statement"
+              }
+            ]
+          }
+        },
+        {
           "type": "STRING",
           "value": "/>"
         }

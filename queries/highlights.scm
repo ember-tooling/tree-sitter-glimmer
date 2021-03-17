@@ -37,7 +37,7 @@
   (path_expression (identifier) @variable)
   (identifier) @variable
   ])
-  (#not-match? @variable "yield"))
+  (#not-match? @variable "yield|outlet"))
 ; As are arguments in a block statement
 (block_statement_start argument: [
   (path_expression (identifier) @variable)
@@ -51,9 +51,9 @@
   (identifier) @variable
   ])
 
-; If the identifier is just "yield", it's a key-word
+; If the identifier is just "yield" or "outlet", it's a keyword
 ((mustache_statement (identifier) @keyword)
-  (#match? @keyword "yield"))
+  (#match? @keyword "yield|outlet"))
 
 ; Helpers are functions
 ((helper_invocation helper: [

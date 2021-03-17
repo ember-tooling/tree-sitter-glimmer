@@ -58,6 +58,19 @@ Nested Glimmer components
       (tag_name))))
 
 ==================
+Named Blocks
+==================
+<:header></:header>
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name))
+    (element_node_end
+      (tag_name))))
+
+==================
 Yielded Contextual Component
 ==================
 <d.Trigger></d.Trigger>

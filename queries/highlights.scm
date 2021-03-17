@@ -26,6 +26,8 @@
   (#match? @conditional "^(if|each|let)$"))
 ((block_statement_end path: (identifier) @conditional)
   (#match? @conditional "^(if|each|let)$"))
+((mustache_statement (identifier) @conditional)
+ (#match? @conditional "else"))
 
 ; == Mustache Statements ===
 
@@ -37,7 +39,7 @@
   (path_expression (identifier) @variable)
   (identifier) @variable
   ])
-  (#not-match? @variable "yield|outlet|this"))
+  (#not-match? @variable "yield|outlet|this|else"))
 ; As are arguments in a block statement
 (block_statement_start argument: [
   (path_expression (identifier) @variable)

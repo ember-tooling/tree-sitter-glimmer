@@ -37,7 +37,7 @@
   (path_expression (identifier) @variable)
   (identifier) @variable
   ])
-  (#not-match? @variable "yield|outlet"))
+  (#not-match? @variable "yield|outlet|this"))
 ; As are arguments in a block statement
 (block_statement_start argument: [
   (path_expression (identifier) @variable)
@@ -50,6 +50,12 @@
   (path_expression (identifier) @variable)
   (identifier) @variable
   ])
+; `this` should be highlighted as a built-in variable
+((mustache_statement [
+  (path_expression (identifier) @variable.builtin)
+  (identifier) @variable.builtin
+  ])
+  (#match? @variable.builtin "this"))
 
 ; If the identifier is just "yield" or "outlet", it's a keyword
 ((mustache_statement (identifier) @keyword)

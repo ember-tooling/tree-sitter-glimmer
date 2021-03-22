@@ -17,7 +17,7 @@
     "husky": "^5.2.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
-    "tree-sitter-cli": "^0.19.3"
+    "tree-sitter-cli": "^0.19.4"
   },
   "tree-sitter": [
     {

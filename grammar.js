@@ -92,15 +92,20 @@ module.exports = grammar({
 
     attribute_name: () => /[^<>"'/={}()\s\.,!?|]+/,
 
+    _splattributes: () => "...attributes",
+
     attribute_node: ($) =>
-      seq(
-        $.attribute_name,
-        optional(
-          seq(
-            "=",
-            choice($.concat_statement, $.number_literal, $.mustache_statement)
+      choice(
+        seq(
+          $.attribute_name,
+          optional(
+            seq(
+              "=",
+              choice($.concat_statement, $.number_literal, $.mustache_statement)
+            )
           )
-        )
+        ),
+        alias($._splattributes, $.attribute_name)
       ),
 
     // Special attribute-value strings that can embed a mustache statement

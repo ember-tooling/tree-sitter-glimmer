@@ -146,3 +146,19 @@ On a Void Element
       (attribute_node
         (attribute_name)
         (concat_statement)))))
+
+==================
+Splattributes
+==================
+<div ...attributes></div>
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name)
+      (attribute_node
+        (attribute_name)))
+    (element_node_end
+      (tag_name))))
+

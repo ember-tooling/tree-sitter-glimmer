@@ -259,46 +259,64 @@
       "type": "PATTERN",
       "value": "[^<>\"'/={}()\\s\\.,!?|]+"
     },
+    "_splattributes": {
+      "type": "STRING",
+      "value": "...attributes"
+    },
     "attribute_node": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "attribute_name"
-        },
-        {
-          "type": "CHOICE",
+          "type": "SEQ",
           "members": [
             {
-              "type": "SEQ",
-              "members": [
-                {
-                  "type": "STRING",
-                  "value": "="
-                },
-                {
-                  "type": "CHOICE",
-                  "members": [
-                    {
-                      "type": "SYMBOL",
-                      "name": "concat_statement"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "number_literal"
-                    },
-                    {
-                      "type": "SYMBOL",
-                      "name": "mustache_statement"
-                    }
-                  ]
-                }
-              ]
+              "type": "SYMBOL",
+              "name": "attribute_name"
             },
             {
-              "type": "BLANK"
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SEQ",
+                  "members": [
+                    {
+                      "type": "STRING",
+                      "value": "="
+                    },
+                    {
+                      "type": "CHOICE",
+                      "members": [
+                        {
+                          "type": "SYMBOL",
+                          "name": "concat_statement"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "number_literal"
+                        },
+                        {
+                          "type": "SYMBOL",
+                          "name": "mustache_statement"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
             }
           ]
+        },
+        {
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_splattributes"
+          },
+          "named": true,
+          "value": "attribute_name"
         }
       ]
     },

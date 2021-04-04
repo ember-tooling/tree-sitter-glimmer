@@ -77,11 +77,12 @@
 
 {{!-- Helper Invocation --}}
 
-{{some-helper (sub-expression argument)}}
+{{some-helper (sub-expression this.property)}}
 {{! ^ function }}
 {{!           ^ @tag.delimiter }}
 {{!            ^ function }}
-{{!                           ^ variable }}
+{{!                           ^ variable.builtin }}
+{{!                                ^ variable }}
 
 
 

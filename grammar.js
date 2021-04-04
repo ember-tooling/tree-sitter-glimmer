@@ -174,7 +174,11 @@ module.exports = grammar({
       seq(field("key", $.identifier), "=", field("value", $._expression)),
 
     mustache_statement: ($) =>
-      seq("{{", choice($._expression, $.helper_invocation), "}}"),
+      seq(
+        choice("{{", "{{~"),
+        choice($._expression, $.helper_invocation),
+        choice("}}", "~}}")
+      ),
 
     sub_expression: ($) =>
       seq("(", choice($._expression, $.helper_invocation), ")"),
@@ -200,14 +204,19 @@ module.exports = grammar({
 
     block_statement_start: ($) =>
       seq(
-        "{{#",
+        choice("{{#", "{{~#"),
         field("path", $.identifier),
         $._arguments,
         optional($.block_params),
-        "}}"
+        choice("}}", "~}}")
       ),
 
-    block_statement_end: ($) => seq("{{/", field("path", $.identifier), "}}"),
+    block_statement_end: ($) =>
+      seq(
+        choice("{{/", "{{~/"),
+        field("path", $.identifier),
+        choice("}}", "~}}")
+      ),
 
     block_statement: ($) =>
       seq(

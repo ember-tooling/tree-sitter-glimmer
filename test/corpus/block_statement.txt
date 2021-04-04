@@ -41,3 +41,20 @@ Each Statement
     program: (text_node)
     (block_statement_end
       path: (identifier))))
+
+==================
+Consuming Whitespace
+==================
+{{~#if condition~}}
+  Content!
+{{~/if~}}
+---
+
+(template
+  (block_statement
+    (block_statement_start
+      path: (identifier)
+      argument: (identifier))
+    program: (text_node)
+    (block_statement_end
+      path: (identifier))))

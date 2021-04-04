@@ -42,3 +42,13 @@ Sub Expressions
           argument: (number_literal)
           argument: (number_literal)))
       argument: (number_literal))))
+
+==================
+Consuming Whitespace
+==================
+{{~ someValue ~}}
+---
+
+(template
+  (mustache_statement
+    (identifier)))

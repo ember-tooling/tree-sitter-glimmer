@@ -23,10 +23,8 @@
 (block_statement_end) @tag.delimiter
 
 ; Highlight `if`/`each`/`let`
-((block_statement_start path: (identifier) @conditional)
-  (#match? @conditional "^(if|each|let)$"))
-((block_statement_end path: (identifier) @conditional)
-  (#match? @conditional "^(if|each|let)$"))
+(block_statement_start path: (identifier) @conditional)
+(block_statement_end path: (identifier) @conditional)
 ((mustache_statement (identifier) @conditional)
  (#match? @conditional "else"))
 

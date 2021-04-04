@@ -129,6 +129,16 @@
 {{/let}}
 {{! ^ conditional }}
 
+{{#with (or "first" "second") as |result|}}
+{{! ^ conditional }}
+{{/with}}
+{{! ^ conditional }}
+
+{{#each-in object as |result|}}
+{{! ^ conditional }}
+{{/each-in}}
+{{! ^ conditional }}
+
 
 
 {{!-- Comments --}}

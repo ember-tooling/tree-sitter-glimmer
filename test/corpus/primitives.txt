@@ -2,9 +2,13 @@
 Double-Quote String
 ==================
 {{"foo"}}
+{{""}}
 ---
 
 (template
+  (mustache_statement
+    (string_literal))
+  (text_node)
   (mustache_statement
     (string_literal)))
 
@@ -12,9 +16,13 @@ Double-Quote String
 Single-Quote String
 ==================
 {{'foo'}}
+{{''}}
 ---
 
 (template
+  (mustache_statement
+    (string_literal))
+  (text_node)
   (mustache_statement
     (string_literal)))
 

@@ -33,9 +33,9 @@ module.exports = grammar({
     string_literal: ($) =>
       choice($._single_quote_string_literal, $._double_quote_string_literal),
     // https://github.com/tree-sitter/tree-sitter-javascript/blob/37af80d372ae9e2f5adc2c6321d5a34294dc348b/grammar.js#L826
-    _single_quote_string_literal: () => seq("'", /[^'\\]+/, "'"),
+    _single_quote_string_literal: () => seq("'", /[^'\\]*/, "'"),
     // https://github.com/tree-sitter/tree-sitter-javascript/blob/37af80d372ae9e2f5adc2c6321d5a34294dc348b/grammar.js#L818
-    _double_quote_string_literal: () => seq('"', /[^"\\]+/, '"'),
+    _double_quote_string_literal: () => seq('"', /[^"\\]*/, '"'),
 
     number_literal: () => /[0-9]+/,
 

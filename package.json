@@ -7,7 +7,7 @@
     "generate": "tree-sitter generate",
     "parse": "tree-sitter parse",
     "test": "tree-sitter test",
-    "postinstall": "husky install"
+    "prepare": "husky install"
   },
   "dependencies": {
     "nan": "^2.15.0"

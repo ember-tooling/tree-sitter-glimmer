@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "main": "bindings/node",
   "license": "MIT",
-  "private": true,
   "scripts": {
     "generate": "tree-sitter generate",
     "parse": "tree-sitter parse",

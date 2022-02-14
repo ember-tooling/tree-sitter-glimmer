@@ -438,10 +438,10 @@ to-regex-range@^5.0.1:
   dependencies:
     is-number "^7.0.0"
 
-tree-sitter-cli@^0.20.1:
-  version "0.20.1"
-  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.1.tgz#9c6f1c79fd87d2a73a232dbceae673240741d785"
-  integrity sha512-I0Gp4ThRp39TDnBAaZKiogvoE85MSeL6/ILZMXbzeEo8hUsudpVhEHRE4CU+Bk5QUaiMiDkD+ZIL3gT2zZ++wg==
+tree-sitter-cli@^0.20.4:
+  version "0.20.4"
+  resolved "https://registry.yarnpkg.com/tree-sitter-cli/-/tree-sitter-cli-0.20.4.tgz#4b3fd16c8f1e0870bd428bcc3f2269b75ee97b96"
+  integrity sha512-G42x0Ev7mxA8WLUfZY+two5LIhPf6R/m7qDZtKxOzE77zXi6didNI/vf17kHaKaRXJrWnyCxHFaVQFO2LL81yg==
 
 tslib@^2.1.0:
   version "2.3.1"

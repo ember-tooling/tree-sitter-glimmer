@@ -15,7 +15,7 @@
   "devDependencies": {
     "husky": "^7.0.4",
     "lint-staged": "^12.3.7",
-    "prettier": "^2.6.0",
+    "prettier": "^2.6.2",
     "tree-sitter-cli": "^0.20.1"
   },
   "tree-sitter": [

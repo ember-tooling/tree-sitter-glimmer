@@ -10,7 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "nan": "^2.15.0"
+    "nan": "^2.16.0"
   },
   "devDependencies": {
     "husky": "^7.0.4",

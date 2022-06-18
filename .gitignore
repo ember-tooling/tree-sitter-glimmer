@@ -1,8 +1,10 @@
 # Dependencies
 node_modules
+Cargo.lock
 
 # Build Output
 build
+target/
 
 # Generates Docs Output
 docs/*.html

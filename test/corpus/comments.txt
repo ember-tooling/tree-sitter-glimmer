@@ -34,11 +34,7 @@ HBS Single-Line Comments with Line Break
 ---
 
 (template
-  (mustache_statement
-    (ERROR (UNEXPECTED '!'))
-    (helper_invocation
-      (identifier)
-      (identifier))))
+  (comment_statement))
 
 ==================
 Comment as element child

@@ -83,9 +83,6 @@ static bool scan_single_line_handlebars_comment(TSLexer *lexer) {
     unsigned brackets = 0;
     while (lexer->lookahead) {
         switch (lexer->lookahead) {
-            // A line break within a single-line comment makes this invalid
-            case '\n':
-                return false;
             case '}':
                 ++brackets;
                 if (brackets == 2) {

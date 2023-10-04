@@ -84,7 +84,7 @@ Argument components
       (tag_name))))
 
 ==================
-Argument components
+Argument property components
 ==================
 <@arg.item></@arg.item>
 ---

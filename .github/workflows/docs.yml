@@ -29,7 +29,7 @@ jobs:
       - name: Update config with desired settings
         run: cp docs/config.json $HOME/.config/tree-sitter/config.json
       - name: Generate highlighted file
-        run: yarn --silent tree-sitter highlight --html test/highlight/highlights.hbs > docs/index.html
+        run: yarn tree-sitter highlight --html test/highlight/highlights.hbs > docs/index.html
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.0
         with:

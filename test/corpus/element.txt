@@ -71,6 +71,32 @@ Named Blocks
       (tag_name))))
 
 ==================
+Argument components
+==================
+<@item></@item>
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name))
+    (element_node_end
+      (tag_name))))
+
+==================
+Argument property components
+==================
+<@arg.item></@arg.item>
+---
+
+(template
+  (element_node
+    (element_node_start
+      (tag_name))
+    (element_node_end
+      (tag_name))))
+
+==================
 Yielded Contextual Component
 ==================
 <d.Trigger></d.Trigger>

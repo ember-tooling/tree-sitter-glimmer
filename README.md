@@ -2,11 +2,11 @@
 
 > A TreeSitter grammar for Glimmer (`.hbs`) templates
 
-[![Verify](https://github.com/alexlafroscia/tree-sitter-glimmer/actions/workflows/verify.yml/badge.svg)](https://github.com/alexlafroscia/tree-sitter-glimmer/actions/workflows/verify.yml)
+[![Verify](https://github.com/ember-tooling/tree-sitter-glimmer/actions/workflows/verify.yml/badge.svg)](https://github.com/ember-tooling/tree-sitter-glimmer/actions/workflows/verify.yml)
 
 ## Sample Highlighting
 
-Up-to-date sample highlighting can be found on the web page for this project [here](https://alexlafroscia.github.io/tree-sitter-glimmer/).
+Up-to-date sample highlighting can be found on the web page for this project [here](https://ember-tooling.github.io/tree-sitter-glimmer/).
 
 ## Usage
 
@@ -14,4 +14,4 @@ Up-to-date sample highlighting can be found on the web page for this project [he
 
 This package is already available as part of `nvim-treesitter` as the `glimmer` parser.
 
-You can also follow [these instructions](https://github.com/alexlafroscia/tree-sitter-glimmer/wiki/Highlighting-in-NeoVim) to allow `nvim-treesitter` to use a locally-cloned version of this parser, which can be useful for development or trying out the most up-to-date highlighting.
+You can also follow [these instructions](https://github.com/ember-tooling/tree-sitter-glimmer/wiki/Highlighting-in-NeoVim) to allow `nvim-treesitter` to use a locally-cloned version of this parser, which can be useful for development or trying out the most up-to-date highlighting.

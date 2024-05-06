@@ -1413,12 +1413,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tree-sitter-cli@npm:^0.22.1":
-  version: 0.22.1
-  resolution: "tree-sitter-cli@npm:0.22.1"
+"tree-sitter-cli@npm:^0.22.6":
+  version: 0.22.6
+  resolution: "tree-sitter-cli@npm:0.22.6"
   bin:
     tree-sitter: cli.js
-  checksum: 9c69bc3ced901b8374869865806244a2768b31e0d1209ea4f0f5c4303c8faa467ceaba4f9810529430df9a08a255bbb0ffc084158f448c67a83b312bc808e33e
+  checksum: 69c424260d7f0c11654b563464793e287bb6a228c4dbb2f1d8c4d97e09a4605a0639991525d6ff0b2764619f073258af0dd362af9c509f8844097114d86d59c9
   languageName: node
   linkType: hard
 
@@ -1430,7 +1430,7 @@ __metadata:
     lint-staged: ^15.2.2
     nan: ^2.19.0
     prettier: ^2.8.8
-    tree-sitter-cli: ^0.22.1
+    tree-sitter-cli: ^0.22.6
   languageName: unknown
   linkType: soft
 

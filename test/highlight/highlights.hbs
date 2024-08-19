@@ -26,14 +26,14 @@
 {{!-- Nested Languages --}}
 
 <style>
-  {{! <- tag }}
   .foo {
-    color: red;
+    background-color: red;
   }
+  (hello there)
+  {{@hello (hello @there)}}
 </style>
 
 <script>
-  {{! <- tag }}
   function hello() {
   }
 </script>

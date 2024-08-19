@@ -48,6 +48,31 @@
   "lint-staged": {
     "*.js": "prettier --write"
   },
+  "tree-sitter": [
+    {
+      "scope": "source.hbs",
+      "file-types": [
+        "hbs",
+        "handlebars",
+        "html.handlebars",
+        "glimmer"
+      ],
+      "path": "./",
+      "highlights": [
+        "queries/glimmer/highlights.scm"
+      ],
+      "locals": [
+        "queries/glimmer/locals.scm"
+      ],
+      "tags": [
+        "queries/glimmer/tags.scm"
+      ],
+      "injections": [
+        "queries/glimmer/injections.scm"
+      ]
+      "injection-regex": "^(hbs|glimmer|handlebars)$"
+    }
+  ],
   "packageManager": "yarn@3.6.4",
   "files": [
     "grammar.js",

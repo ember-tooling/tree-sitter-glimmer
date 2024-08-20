@@ -14,7 +14,7 @@ module.exports = grammar({
         $.mustache_statement,
         $.block_statement,
         $.element_node,
-        $.text_node
+        $.text_node,
       ),
 
     //
@@ -61,11 +61,11 @@ module.exports = grammar({
           choice(
             $.attribute_node,
             $.mustache_statement,
-            alias($.comment, $.comment_statement)
-          )
+            alias($.comment, $.comment_statement),
+          ),
         ),
         optional($.block_params),
-        ">"
+        ">",
       ),
     element_node_end: ($) => seq("</", $.tag_name, ">"),
 
@@ -78,17 +78,17 @@ module.exports = grammar({
           choice(
             $.attribute_node,
             $.mustache_statement,
-            alias($.comment, $.comment_statement)
-          )
+            alias($.comment, $.comment_statement),
+          ),
         ),
-        "/>"
+        "/>",
       ),
 
     // An "Element" is either a "normal" or "void" element
     element_node: ($) =>
       choice(
         seq($.element_node_start, repeat($._declaration), $.element_node_end),
-        $.element_node_void
+        $.element_node_void,
       ),
 
     attribute_name: () => /[^<>"'/={}()\s\.,!?|]+/,
@@ -102,18 +102,22 @@ module.exports = grammar({
           optional(
             seq(
               "=",
-              choice($.concat_statement, $.number_literal, $.mustache_statement)
-            )
-          )
+              choice(
+                $.concat_statement,
+                $.number_literal,
+                $.mustache_statement,
+              ),
+            ),
+          ),
         ),
-        alias($._splattributes, $.attribute_name)
+        alias($._splattributes, $.attribute_name),
       ),
 
     // Special attribute-value strings that can embed a mustache statement
     concat_statement: ($) =>
       choice(
         $._single_quote_concat_statement,
-        $._double_quote_concat_statement
+        $._double_quote_concat_statement,
       ),
 
     _single_quote_concat_statement: ($) =>
@@ -122,10 +126,10 @@ module.exports = grammar({
         repeat(
           choice(
             $._mustache_safe_single_quote_string_literal_content,
-            $.mustache_statement
-          )
+            $.mustache_statement,
+          ),
         ),
-        "'"
+        "'",
       ),
     _double_quote_concat_statement: ($) =>
       seq(
@@ -133,16 +137,16 @@ module.exports = grammar({
         repeat(
           choice(
             $._mustache_safe_double_quote_string_literal_content,
-            $.mustache_statement
-          )
+            $.mustache_statement,
+          ),
         ),
-        '"'
+        '"',
       ),
 
     _mustache_safe_string_literal: ($) =>
       choice(
         $._mustache_safe_single_quote_string_literal,
-        $._mustache_safe_double_quote_string_literal
+        $._mustache_safe_double_quote_string_literal,
       ),
     _mustache_safe_single_quote_string_literal_content: () => /[^'\\{]+/,
     _mustache_safe_single_quote_string_literal: ($) =>
@@ -168,7 +172,7 @@ module.exports = grammar({
         $.boolean_literal,
         $.sub_expression,
         $.path_expression,
-        $.identifier
+        $.identifier,
       ),
 
     hash_pair: ($) =>
@@ -178,7 +182,7 @@ module.exports = grammar({
       seq(
         choice("{{", "{{~"),
         choice($._expression, $.helper_invocation),
-        choice("}}", "~}}")
+        choice("}}", "~}}"),
       ),
 
     sub_expression: ($) =>
@@ -190,13 +194,13 @@ module.exports = grammar({
     _arguments: ($) =>
       choice(
         seq(repeat1(field("argument", $._expression)), repeat($.hash_pair)),
-        seq(repeat(field("argument", $._expression)), repeat1($.hash_pair))
+        seq(repeat(field("argument", $._expression)), repeat1($.hash_pair)),
       ),
 
     helper_invocation: ($) =>
       seq(
         field("helper", choice($.identifier, $.path_expression)),
-        $._arguments
+        $._arguments,
       ),
 
     //
@@ -209,21 +213,21 @@ module.exports = grammar({
         field("path", $.identifier),
         $._arguments,
         optional($.block_params),
-        choice("}}", "~}}")
+        choice("}}", "~}}"),
       ),
 
     block_statement_end: ($) =>
       seq(
         choice("{{/", "{{~/"),
         field("path", $.identifier),
-        choice("}}", "~}}")
+        choice("}}", "~}}"),
       ),
 
     block_statement: ($) =>
       seq(
         $.block_statement_start,
         field("program", repeat($._declaration)),
-        $.block_statement_end
+        $.block_statement_end,
       ),
   },
 });

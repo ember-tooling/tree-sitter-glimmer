@@ -25,10 +25,10 @@
 (mustache_statement
   (helper_invocation
     helper: (identifier) @_identifier
-    (#lua-match? @_identifier "else"))) @indent.branch
+    (#eq? @_identifier "else"))) @indent.branch
 
 (mustache_statement
   ((identifier) @_identifier
-    (#lua-match? @_identifier "else"))) @indent.branch
+    (#eq? @_identifier "else"))) @indent.branch
 
 (comment_statement) @indent.ignore

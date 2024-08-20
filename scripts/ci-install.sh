@@ -2,6 +2,10 @@
 
 set -e
 
+cd /tmp/ci-linting/
+git clone https://github.com/nvim-treesitter/nvim-treesitter.git
+cd nvim-treesitter
+
 os=$(uname -s)
 if [[ $os == Linux ]]; then
   wget https://github.com/neovim/neovim/releases/download/${NVIM_TAG}/nvim-linux64.tar.gz

@@ -1,25 +1,23 @@
 [package]
 name = "tree-sitter-glimmer"
-description = "glimmer grammar for the tree-sitter parsing library"
+description = "Glimmer grammar for tree-sitter"
 version = "0.0.1"
-keywords = ["incremental", "parsing", "glimmer"]
+license = "MIT"
+readme = "README.md"
+keywords = ["incremental", "parsing", "tree-sitter", "glimmer"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/tree-sitter/tree-sitter-javascript"
-edition = "2018"
+repository = "https://github.com/tree-sitter/tree-sitter-glimmer"
+edition = "2021"
+autoexamples = false
 
 build = "bindings/rust/build.rs"
-include = [
-  "bindings/rust/*",
-  "grammar.js",
-  "queries/*",
-  "src/*",
-]
+include = ["bindings/rust/*", "grammar.js", "queries/*", "src/*"]
 
 [lib]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter = "0.20"
+tree-sitter = ">=0.22.6"
 
 [build-dependencies]
-cc = "1.0"
+cc = "1.0.87"

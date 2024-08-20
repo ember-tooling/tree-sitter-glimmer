@@ -22,19 +22,13 @@
     "install": "node-gyp-build",
     "parse": "tree-sitter parse",
     "prebuildify": "prebuildify --napi --strip",
-    "prepare": "husky install",
     "test": "tree-sitter test"
-  },
-  "lint-staged": {
-    "*.js": "prettier --write"
   },
   "dependencies": {
     "node-addon-api": "^8.1.0",
     "node-gyp-build": "^4.8.0"
   },
   "devDependencies": {
-    "husky": "^7.0.4",
-    "lint-staged": "^15.2.2",
     "prebuildify": "^6.0.0",
     "prettier": "^2.8.8",
     "release-plan": "^0.9.0",

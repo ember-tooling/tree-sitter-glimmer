@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       node-addon-api:
-        specifier: ^7.1.0
-        version: 7.1.1
+        specifier: ^8.1.0
+        version: 8.1.0
       node-gyp-build:
         specifier: ^4.8.0
         version: 4.8.1
@@ -206,9 +206,6 @@ packages:
   node-abi@3.65.0:
     resolution: {integrity: sha512-ThjYBfoDNr08AWx6hGaRbfPwxKV9kVzAzOzlLKbk2CuqXE2xnCh+cbAGnwM3t8Lq4v9rUB7VfondlkBckcJrVA==}
     engines: {node: '>=10'}
-
-  node-addon-api@7.1.1:
-    resolution: {integrity: sha512-5m3bsyrjFWE1xf7nz7YXdN4udnVtXK6/Yfgn5qnahL6bCkf2yKt4k3nuTKAtT4r3IG8JNR2ncsIMdZuAzJjHQQ==}
 
   node-addon-api@8.1.0:
     resolution: {integrity: sha512-yBY+qqWSv3dWKGODD6OGE6GnTX7Q2r+4+DfpqxHSHh8x0B4EKP9+wVGLS6U/AM1vxSNNmUEuIV5EGhYwPpfOwQ==}
@@ -522,8 +519,6 @@ snapshots:
   node-abi@3.65.0:
     dependencies:
       semver: 7.6.3
-
-  node-addon-api@7.1.1: {}
 
   node-addon-api@8.1.0: {}
 

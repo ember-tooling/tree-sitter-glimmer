@@ -44,7 +44,9 @@ jobs:
       - name: Run tests
         uses: tree-sitter/parser-test-action@v2
         with:
-          test-rust: ${{runner.os == 'Linux'}}
+          # We don't support rust bundling for now
+          test-rust: false
+          # test-rust: ${{runner.os == 'Linux'}}
   fuzz:
     name: Fuzz scanner
     runs-on: ubuntu-latest

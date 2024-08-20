@@ -1,3 +1,7 @@
+; comments
+((comment_statement) @injection.content
+ (#set! injection.language "comment"))
+
 ; <style> tags
 ((element_node
   (element_node_start

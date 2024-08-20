@@ -23,10 +23,11 @@ jobs:
     - run: npm exec prettier --check .
 
   format-queries:
-    name: Lint queries
+    name: Queries
     runs-on: ubuntu-latest
     env:
-      NVIM_TAG: stable
+      NVIM_TAG: nightly
+      # NVIM_TAG: stable
     steps:
       - uses: actions/checkout@v4
       - name: Prepare
@@ -35,6 +36,7 @@ jobs:
 
       - name: Lint
         run: |
+          nvim --version
           nvim --headless -c "TSInstallSync query" -c "q"
           nvim -l scripts/format-queries.lua
           git diff --exit-code

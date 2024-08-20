@@ -2,13 +2,13 @@
 ; Tags that start with a lower case letter are HTML tags
 ; We'll also use this highlighting for named blocks (which start with `:`)
 ((tag_name) @tag
-  (#lua-match? @tag "^(:)?[%l]"))
+  (#lua-match? @tag "^:?[%l]"))
 
 ; Tags that start with a capital letter are Glimmer components
 ((tag_name) @constructor
   (#lua-match? @constructor "^%u"))
 
-(attribute_name) @property
+(attribute_name) @attribute
 
 (string_literal) @string
 
@@ -26,17 +26,17 @@
 
 ; Highlight `if`/`each`/`let`
 (block_statement_start
-  path: (identifier) @conditional)
+  path: (identifier) @keyword.conditional)
 
 (block_statement_end
-  path: (identifier) @conditional)
+  path: (identifier) @keyword.conditional)
 
 ((mustache_statement
-  (identifier) @conditional)
-  (#lua-match? @conditional "else"))
+  (identifier) @keyword.conditional)
+  (#lua-match? @keyword.conditional "else"))
 
 ; == Mustache Statements ===
-; Hightlight the whole statement, to color brackets and separators
+; Highlight the whole statement, to color brackets and separators
 (mustache_statement) @tag.delimiter
 
 ; An identifier in a mustache expression is a variable
@@ -85,11 +85,11 @@
       (identifier) @function)
     (identifier) @function
   ])
-  (#any-of? @function "if" "yield"))
+  (#not-any-of? @function "if" "yield"))
 
 ((helper_invocation
-  helper: (identifier) @conditional)
-  (#eq? @conditional "if"))
+  helper: (identifier) @keyword.conditional)
+  (#eq? @keyword.conditional "if"))
 
 ((helper_invocation
   helper: (identifier) @keyword)
@@ -98,7 +98,7 @@
 (hash_pair
   key: (identifier) @property)
 
-(comment_statement) @comment
+(comment_statement) @comment @spell
 
 (attribute_node
   "=" @operator)

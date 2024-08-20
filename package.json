@@ -32,15 +32,6 @@
     "prettier": "^2.8.8",
     "tree-sitter-cli": "^0.22.6"
   },
-  "tree-sitter": [
-    {
-      "scope": "source.glimmer",
-      "file-types": [
-        "hbs"
-      ],
-      "injection-regex": "hbs"
-    }
-  ],
   "volta": {
     "node": "14.16.0",
     "yarn": "1.22.10"
@@ -50,7 +41,7 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.hbs",
+      "scope": "source.glimmer",
       "file-types": [
         "hbs",
         "handlebars",
@@ -69,7 +60,7 @@
       ],
       "injections": [
         "queries/glimmer/injections.scm"
-      ]
+      ],
       "injection-regex": "^(hbs|glimmer|handlebars)$"
     }
   ],

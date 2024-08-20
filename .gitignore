@@ -1,3 +1,6 @@
+# Local Building
+parser/*.so
+
 # Dependencies
 node_modules
 Cargo.lock

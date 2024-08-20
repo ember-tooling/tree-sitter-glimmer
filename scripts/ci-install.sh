@@ -2,6 +2,7 @@
 
 set -e
 
+mkdir -p /tmp/ci-linting/
 cd /tmp/ci-linting/
 git clone https://github.com/nvim-treesitter/nvim-treesitter.git
 cd nvim-treesitter

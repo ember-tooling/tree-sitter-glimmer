@@ -1,21 +1,44 @@
 {
   "name": "tree-sitter-glimmer",
   "version": "1.3.0",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ember-tooling/tree-sitter-glimmer.git"
+  },
+  "license": "MIT",
   "main": "bindings/node",
   "types": "bindings/node",
-  "license": "MIT",
+  "files": [
+    "grammar.js",
+    "binding.gyp",
+    "prebuilds/**",
+    "bindings/node/*",
+    "queries/*",
+    "src/**"
+  ],
   "scripts": {
-    "generate": "tree-sitter generate",
     "build:local": "tree-sitter build -o parser/glimmer.so",
-    "parse": "tree-sitter parse",
-    "test": "tree-sitter test",
-    "prepare": "husky install",
+    "generate": "tree-sitter generate",
     "install": "node-gyp-build",
-    "prebuildify": "prebuildify --napi --strip"
+    "parse": "tree-sitter parse",
+    "prebuildify": "prebuildify --napi --strip",
+    "prepare": "husky install",
+    "test": "tree-sitter test"
+  },
+  "lint-staged": {
+    "*.js": "prettier --write"
   },
   "dependencies": {
     "node-addon-api": "^8.1.0",
     "node-gyp-build": "^4.8.0"
+  },
+  "devDependencies": {
+    "husky": "^7.0.4",
+    "lint-staged": "^15.2.2",
+    "prebuildify": "^6.0.0",
+    "prettier": "^2.8.8",
+    "release-plan": "^0.9.0",
+    "tree-sitter-cli": "^0.22.6"
   },
   "peerDependencies": {
     "tree-sitter": "^0.21.0"
@@ -25,19 +48,10 @@
       "optional": true
     }
   },
-  "devDependencies": {
-    "husky": "^7.0.4",
-    "lint-staged": "^15.2.2",
-    "prebuildify": "^6.0.0",
-    "prettier": "^2.8.8",
-    "tree-sitter-cli": "^0.22.6"
-  },
+  "packageManager": "pnpm@9.7.1",
   "volta": {
     "node": "20.16.0",
     "pnpm": "9.7.1"
-  },
-  "lint-staged": {
-    "*.js": "prettier --write"
   },
   "tree-sitter": [
     {
@@ -63,14 +77,5 @@
       ],
       "injection-regex": "^(hbs|glimmer|handlebars)$"
     }
-  ],
-  "packageManager": "pnpm@9.7.1",
-  "files": [
-    "grammar.js",
-    "binding.gyp",
-    "prebuilds/**",
-    "bindings/node/*",
-    "queries/*",
-    "src/**"
   ]
 }

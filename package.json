@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "node-addon-api": "^8.1.0",
-    "node-gyp-build": "^4.8.0"
+    "node-gyp-build": "^4.8.3"
   },
   "devDependencies": {
     "prebuildify": "^6.0.0",

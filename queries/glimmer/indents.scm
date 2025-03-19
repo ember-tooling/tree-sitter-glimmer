@@ -22,13 +22,6 @@
   "}}"
 ] @indent.branch
 
-(mustache_statement
-  (helper_invocation
-    helper: (identifier) @_identifier
-    (#eq? @_identifier "else"))) @indent.branch
-
-(mustache_statement
-  ((identifier) @_identifier
-    (#eq? @_identifier "else"))) @indent.branch
+(block_statement_inverse) @indent.branch
 
 (comment_statement) @indent.ignore

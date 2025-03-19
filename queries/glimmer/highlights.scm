@@ -40,9 +40,10 @@
   (identifier) @keyword.conditional)
   (#eq? @keyword.conditional "if"))
 
-((mustache_statement
-  (identifier) @keyword.conditional)
-  (#eq? @keyword.conditional "else"))
+[
+  "else"
+  "else if"
+]  @keyword.conditional
 
 ; == Mustache Statements ===
 ; Highlight the whole statement, to color brackets and separators

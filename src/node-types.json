@@ -81,6 +81,10 @@
           "named": true
         },
         {
+          "type": "block_statement_inverse",
+          "named": true
+        },
+        {
           "type": "block_statement_start",
           "named": true
         }
@@ -101,6 +105,56 @@
           }
         ]
       }
+    }
+  },
+  {
+    "type": "block_statement_inverse",
+    "named": true,
+    "fields": {
+      "argument": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "boolean_literal",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "number_literal",
+            "named": true
+          },
+          {
+            "type": "path_expression",
+            "named": true
+          },
+          {
+            "type": "string_literal",
+            "named": true
+          },
+          {
+            "type": "sub_expression",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "block_params",
+          "named": true
+        },
+        {
+          "type": "hash_pair",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -585,6 +639,14 @@
   {
     "type": "comment_statement",
     "named": true
+  },
+  {
+    "type": "else",
+    "named": false
+  },
+  {
+    "type": "else if",
+    "named": false
   },
   {
     "type": "false",

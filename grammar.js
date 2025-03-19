@@ -315,6 +315,23 @@ export default grammar({
         choice("}}", "~}}"),
       ),
 
+    block_statement_inverse: ($) =>
+      choice(
+        seq(
+          choice("{{", "{{~"),
+          "else",
+          optional($.block_params),
+          choice("}}", "~}}"),
+        ),
+        // prettier-ignore
+        seq(
+          choice("{{", "{{~"),
+          "else if",
+          $._arguments,
+          choice("}}", "~}}"),
+        ),
+      ),
+
     block_statement_end: ($) =>
       seq(
         choice("{{/", "{{~/"),
@@ -325,7 +342,9 @@ export default grammar({
     block_statement: ($) =>
       seq(
         $.block_statement_start,
-        field("program", repeat($._declaration)),
+        repeat(
+          choice($.block_statement_inverse, field("program", $._declaration)),
+        ),
         $.block_statement_end,
       ),
   },

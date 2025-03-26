@@ -759,6 +759,97 @@
         }
       ]
     },
+    "block_statement_inverse": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "{{"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{{~"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "else"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "block_params"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "}}"
+                },
+                {
+                  "type": "STRING",
+                  "value": "~}}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "{{"
+                },
+                {
+                  "type": "STRING",
+                  "value": "{{~"
+                }
+              ]
+            },
+            {
+              "type": "STRING",
+              "value": "else if"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_arguments"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "STRING",
+                  "value": "}}"
+                },
+                {
+                  "type": "STRING",
+                  "value": "~}}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
     "block_statement_end": {
       "type": "SEQ",
       "members": [
@@ -806,14 +897,23 @@
           "name": "block_statement_start"
         },
         {
-          "type": "FIELD",
-          "name": "program",
+          "type": "REPEAT",
           "content": {
-            "type": "REPEAT",
-            "content": {
-              "type": "SYMBOL",
-              "name": "_declaration"
-            }
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "block_statement_inverse"
+              },
+              {
+                "type": "FIELD",
+                "name": "program",
+                "content": {
+                  "type": "SYMBOL",
+                  "name": "_declaration"
+                }
+              }
+            ]
           }
         },
         {

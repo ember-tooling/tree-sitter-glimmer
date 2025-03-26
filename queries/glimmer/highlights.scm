@@ -31,9 +31,11 @@
 (block_statement_end
   path: (identifier) @keyword.conditional)
 
-((mustache_statement
-  (identifier) @keyword.conditional)
-  (#lua-match? @keyword.conditional "else"))
+[
+  "else"
+  "else if"
+]  @keyword.conditional
+
 
 ; == Mustache Statements ===
 ; Highlight the whole statement, to color brackets and separators

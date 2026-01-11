@@ -1,0 +1,20 @@
+<MyComponent @foo={{bar}} as |whatever|>
+{{! ^ constructor }}
+{{!          ^ attribute }}
+{{!                       ^ keyword }}
+{{!                          ^ operator }}
+{{!                                   ^ operator }}
+  {{whatever}}
+</MyComponent>
+
+<Parent::Child />
+{{! ^ constructor }}
+{{!    ^ constructor }}
+{{!      ^ constructor }}
+
+<Modal>
+  <:header>
+    {{! <- tag }}
+  </:header>
+  {{! ^ tag }}
+</Modal>

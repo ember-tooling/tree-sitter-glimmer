@@ -1,42 +1,26 @@
-name: Linting
+name: Lint
 
 on:
-  pull_request:
   push:
-    branches:
-      - master
-      - main
-
-concurrency:
-  group: ${{github.workflow}}-${{github.ref}}
-  cancel-in-progress: true
+    branches: [master]
+    paths:
+      - grammar.js
+  pull_request:
+    paths:
+      - grammar.js
 
 jobs:
-  js:
-    name: "JavaScript"
+  lint:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
-    - run: npm install
-    - run: npm exec prettier --check .
-
-  format-queries:
-    name: Queries
-    runs-on: ubuntu-latest
-    env:
-      NVIM_TAG: nightly
-      # NVIM_TAG: stable
-    steps:
-      - uses: actions/checkout@v4
-      - name: Prepare
-        run: |
-          bash ./scripts/ci-install.sh
-
-      - name: Lint
-        run: |
-          nvim --version
-          nvim --headless -c "TSInstallSync query" -c "q"
-          nvim -l scripts/format-queries.lua
-          git diff --exit-code
+      - name: Checkout repository
+        uses: actions/checkout@v5
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          node-version: ${{vars.NODE_VERSION}}
+      - name: Install modules
+        run: npm ci --legacy-peer-deps
+      - name: Run ESLint
+        run: npm run lint

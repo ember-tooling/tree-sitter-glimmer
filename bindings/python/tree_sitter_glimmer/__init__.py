@@ -1,4 +1,4 @@
-"""Glimmer grammar for tree-sitter"""
+"""tree-sitter parser for glimmer syntax (and also some of handlebars)"""
 
 from importlib.resources import files as _files
 
@@ -16,11 +16,11 @@ def _get_query(name, file):
 
 def __getattr__(name):
     if name == "HIGHLIGHTS_QUERY":
-        return _get_query("HIGHLIGHTS_QUERY", "queries/glimmer/highlights.scm")
+        return _get_query("HIGHLIGHTS_QUERY", "queries/highlights.scm")
     if name == "INJECTIONS_QUERY":
-        return _get_query("INJECTIONS_QUERY", "queries/glimmer/injections.scm")
+        return _get_query("INJECTIONS_QUERY", "queries/injections.scm")
     if name == "LOCALS_QUERY":
-        return _get_query("LOCALS_QUERY", "queries/glimmer/locals.scm")
+        return _get_query("LOCALS_QUERY", "queries/locals.scm")
     if name == "TAGS_QUERY":
         return _get_query("TAGS_QUERY", "queries/tags.scm")
 

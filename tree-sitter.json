@@ -1,35 +1,44 @@
 {
-  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/tree-sitter.json",
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
   "grammars": [
     {
       "name": "glimmer",
+      "camelcase": "Glimmer",
+      "title": "Glimmer",
       "scope": "source.glimmer",
-      "path": ".",
       "file-types": [
-        "hbs",
         "handlebars",
         "html.handlebars",
+        "hbs",
         "glimmer"
       ],
-      "injection-regex": "^(hbs|glimmer|handlebars)$",
-      "highlights": ["queries/glimmer/highlights.scm"],
-      "injections": ["queries/glimmer/injections.scm"],
-      "locals": ["queries/glimmer/locals.scm"],
-      "indents": ["queries/glimmer/indents.scm"],
-      "folds": ["queries/glimmer/folds.scm"]
+      "injection-regex": "^glimmer$",
+      "class-name": "TreeSitterGlimmer"
     }
   ],
   "metadata": {
     "version": "1.4.0",
     "license": "MIT",
-    "description": "Glimmer grammar for tree-sitter",
+    "description": "tree-sitter parser for glimmer syntax (and also some of handlebars)",
     "authors": [
       {
-        "name": "ember-tooling contributors"
+        "name": "NullVoxPopuli",
+        "url": "github.com/nullvoxpopuli"
       }
     ],
     "links": {
-      "repository": "https://github.com/ember-tooling/tree-sitter-glimmer"
+      "repository": "git@github.com:ember-tooling/tree-sitter-glimmer.git",
+      "funding": ""
     }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "java": false,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true,
+    "zig": false
   }
 }

@@ -1,13 +1,13 @@
 
 ; Tags that start with a capital letter are components
 ((tag_name) @constructor
-  (#lua-match? @constructor "^%u"))
+  (#match? @constructor "^[A-Z]"))
 
 ; === Tag Names ===
 ; Tags that start with a lower case letter are HTML tags
 ; We'll also use this highlighting for named blocks (which start with `:`)
 ((tag_name) @tag
-  (#lua-match? @tag "^:?%l"))
+  (#match? @tag "^:?[a-z]"))
 
 (attribute_name) @attribute
 

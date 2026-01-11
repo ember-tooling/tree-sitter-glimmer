@@ -1,6 +1,7 @@
 {
   "name": "tree-sitter-glimmer",
   "version": "1.4.0",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git@github.com:ember-tooling/tree-sitter-glimmer.git"

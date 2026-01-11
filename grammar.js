@@ -14,6 +14,7 @@ export default grammar({
         $.mustache_statement,
         $.block_statement,
         prec(2, $.style_element),
+        prec(2, $.script_element),
         $.element_node,
         prec(-1, $.text_node),
       ),
@@ -147,6 +148,37 @@ export default grammar({
       ),
 
   style_end_tag: ($) => seq("</", alias("style", $.tag_name), ">"),
+
+    // Mirror tree-sitter-html's special handling of <script> elements as well,
+    // so JS braces don't explode the Glimmer grammar.
+    script_element: ($) =>
+      prec.right(
+        2,
+        seq(
+          optional($._style_element_whitespace),
+          alias($.script_start_tag, $.start_tag),
+          optional($.raw_text),
+          alias($.script_end_tag, $.end_tag),
+          optional($._style_element_whitespace),
+        ),
+      ),
+
+    script_start_tag: ($) =>
+      seq(
+        "<",
+        alias("script", $.tag_name),
+        repeat(
+          choice(
+            $.attribute_node,
+            $.mustache_statement,
+            alias($.comment, $.comment_statement),
+          ),
+        ),
+        optional($.block_params),
+        ">",
+      ),
+
+    script_end_tag: ($) => seq("</", alias("script", $.tag_name), ">"),
 
     attribute_name: () => /[^<>"'/={}()\s\.,!?|]+/,
 

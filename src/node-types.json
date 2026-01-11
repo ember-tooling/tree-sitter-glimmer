@@ -71,6 +71,10 @@
             "named": true
           },
           {
+            "type": "script_element",
+            "named": true
+          },
+          {
             "type": "style_element",
             "named": true
           },
@@ -226,6 +230,10 @@
         },
         {
           "type": "mustache_statement",
+          "named": true
+        },
+        {
+          "type": "script_element",
           "named": true
         },
         {
@@ -488,6 +496,29 @@
     }
   },
   {
+    "type": "script_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "end_tag",
+          "named": true
+        },
+        {
+          "type": "raw_text",
+          "named": true
+        },
+        {
+          "type": "start_tag",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "start_tag",
     "named": true,
     "fields": {},
@@ -608,6 +639,10 @@
         },
         {
           "type": "mustache_statement",
+          "named": true
+        },
+        {
+          "type": "script_element",
           "named": true
         },
         {

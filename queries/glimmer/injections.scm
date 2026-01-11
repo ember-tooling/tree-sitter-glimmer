@@ -11,10 +11,9 @@
   (#set! injection.language "css"))
 
 ; <script> tags
-((element_node
-  (element_node_start
+((script_element
+  (start_tag
     (tag_name) @_tag_name
-    (#eq? @_tag_name "script"))) @injection.content
-  (#offset! @injection.content 0 8 0 -9)
-  (#set! injection.language "glimmer_javascript")
-  (#set! injection.include-children))
+    (#eq? @_tag_name "script"))
+  (raw_text) @injection.content)
+  (#set! injection.language "glimmer_javascript"))

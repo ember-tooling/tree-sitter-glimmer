@@ -17,14 +17,14 @@
     "src/**"
   ],
   "scripts": {
-    "print": "tree-sitter highlight --config-path ./test/config.json --grammar-path . ",
-    "print:tree": " tree-sitter parse --config-path ./test/config.json --grammar-path . ",
     "build:local": "tree-sitter build -o parser/glimmer.so",
-    "lint:fix": "prettier --write .",
     "generate": "tree-sitter generate",
     "install": "node-gyp-build",
+    "lint:fix": "prettier --write .",
     "parse": "tree-sitter parse",
     "prebuildify": "prebuildify --napi --strip",
+    "print": "tree-sitter highlight --config-path ./test/config.json --grammar-path . ",
+    "print:tree": " tree-sitter parse --config-path ./test/config.json --grammar-path . ",
     "pretest": "tree-sitter generate",
     "test": "tree-sitter test --config-path ./test/config.json"
   },
@@ -35,7 +35,7 @@
   "devDependencies": {
     "prebuildify": "^6.0.0",
     "prettier": "^3.3.3",
-    "release-plan": "^0.9.0",
+    "release-plan": "^0.17.0",
     "tree-sitter-cli": "^0.22.6"
   },
   "peerDependencies": {

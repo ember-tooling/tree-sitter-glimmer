@@ -1,0 +1,28 @@
+{{#each array key="@index" as |item|}}
+{{! <- @tag.delimiter }}
+{{! ^ keyword }}
+{{!     ^ variable }}
+{{!           ^ property }}
+{{!               ^ string }}
+{{!                        ^ keyword }}
+{{!                           ^ operator }}
+{{!                            ^ variable }}
+{{!                                ^ operator }}
+{{/each}}
+{{! <- @tag.delimiter }}
+{{! ^ keyword }}
+
+{{#let (or "first" "second") as |result|}}
+{{! ^ keyword }}
+{{/let}}
+{{! ^ keyword }}
+
+{{#with (or "first" "second") as |result|}}
+{{! ^ keyword }}
+{{/with}}
+{{! ^ keyword }}
+
+{{#each-in object as |result|}}
+{{! ^ keyword }}
+{{/each-in}}
+{{! ^ keyword }}

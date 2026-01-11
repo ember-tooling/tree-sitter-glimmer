@@ -3,13 +3,12 @@
   (#set! injection.language "comment"))
 
 ; <style> tags
-((element_node
-  (element_node_start
+((style_element
+  (start_tag
     (tag_name) @_tag_name
-    (#eq? @_tag_name "style"))) @injection.content
-  (#offset! @injection.content 0 7 0 -8)
-  (#set! injection.language "css")
-  (#set! injection.include-children))
+    (#eq? @_tag_name "style"))
+  (raw_text) @injection.content)
+  (#set! injection.language "css"))
 
 ; <script> tags
 ((element_node

@@ -1,9 +1,11 @@
 #include <tree_sitter/parser.h>
 #include <wctype.h>
 #include <stdio.h>
+#include <string.h>
 
 enum TokenType {
-  COMMENT
+    COMMENT,
+    RAW_TEXT,
 };
 
 void *tree_sitter_glimmer_external_scanner_create() { return NULL; }
@@ -13,6 +15,35 @@ unsigned tree_sitter_glimmer_external_scanner_serialize(void *p, char *buffer) {
 void tree_sitter_glimmer_external_scanner_deserialize(void *p, const char *b, unsigned n) {}
 
 static void advance(TSLexer *lexer) { lexer->advance(lexer, false); }
+
+static bool scan_raw_text(TSLexer *lexer) {
+    // Scan everything up to (but not including) the closing `</style` tag.
+    //
+    // This mirrors the approach used by tree-sitter-html's external scanner,
+    // and allows `{}`, `{{ }}`, and even `<` to appear inside the raw text.
+    lexer->mark_end(lexer);
+
+    const char *end_delimiter = "</STYLE";
+    const unsigned end_delimiter_length = (unsigned)strlen(end_delimiter);
+
+    unsigned delimiter_index = 0;
+    while (lexer->lookahead) {
+        if (towupper(lexer->lookahead) == (wint_t)end_delimiter[delimiter_index]) {
+            delimiter_index++;
+            if (delimiter_index == end_delimiter_length) {
+                break;
+            }
+            advance(lexer);
+        } else {
+            delimiter_index = 0;
+            advance(lexer);
+            lexer->mark_end(lexer);
+        }
+    }
+
+    lexer->result_symbol = RAW_TEXT;
+    return true;
+}
 
 static bool scan_html_comment(TSLexer *lexer) {
     // Ensure the next characters are `!--`
@@ -130,9 +161,16 @@ static bool scan_handlebars_comment(TSLexer *lexer) {
 
 bool tree_sitter_glimmer_external_scanner_scan(void *payload, TSLexer *lexer,
                                                   const bool *valid_symbols) {
-    // Eat whitespace
+    // When parsing a <style> element's content, the grammar expects a single
+    // RAW_TEXT token that includes whitespace.
+    if (valid_symbols[RAW_TEXT]) {
+        return scan_raw_text(lexer);
+    }
+
+    // Eat whitespace for the comment token. Note: raw text must *not* take
+    // this path, because whitespace is significant inside <style>.
     while (iswspace(lexer->lookahead)) {
-      lexer->advance(lexer, true);
+        lexer->advance(lexer, true);
     }
 
     if (valid_symbols[COMMENT]) {

@@ -9,11 +9,11 @@ importers:
   .:
     dependencies:
       node-addon-api:
-        specifier: ^8.1.0
-        version: 8.1.0
+        specifier: ^8.5.0
+        version: 8.5.0
       node-gyp-build:
-        specifier: ^4.8.0
-        version: 4.8.1
+        specifier: ^4.8.4
+        version: 4.8.4
       tree-sitter:
         specifier: ^0.21.0
         version: 0.21.1
@@ -28,8 +28,8 @@ importers:
         specifier: ^0.17.0
         version: 0.17.4
       tree-sitter-cli:
-        specifier: ^0.22.6
-        version: 0.22.6
+        specifier: ^0.26.3
+        version: 0.26.3
 
 packages:
 
@@ -642,8 +642,16 @@ packages:
     resolution: {integrity: sha512-yBY+qqWSv3dWKGODD6OGE6GnTX7Q2r+4+DfpqxHSHh8x0B4EKP9+wVGLS6U/AM1vxSNNmUEuIV5EGhYwPpfOwQ==}
     engines: {node: ^18 || ^20 || >= 21}
 
+  node-addon-api@8.5.0:
+    resolution: {integrity: sha512-/bRZty2mXUIFY/xU5HLvveNHlswNJej+RnxBjOMkidWfwZzgTbPG1E3K5TOxRLOR+5hX7bSofy8yf1hZevMS8A==}
+    engines: {node: ^18 || ^20 || >= 21}
+
   node-gyp-build@4.8.1:
     resolution: {integrity: sha512-OSs33Z9yWr148JZcbZd5WiAXhh/n9z8TxQcdMhIOlpN9AhWpLfvVFO73+m77bBABQMaY9XSvIa+qk0jlI7Gcaw==}
+    hasBin: true
+
+  node-gyp-build@4.8.4:
+    resolution: {integrity: sha512-LA4ZjwlnUblHVgq0oBF3Jl/6h/Nvs5fzBLwdEF4nuxnFdsfajde4WfxtJr3CaiH+F6ewcIB/q4jQ4UzPyid+CQ==}
     hasBin: true
 
   npm-install-checks@7.1.2:
@@ -932,8 +940,9 @@ packages:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
     engines: {node: '>=8.0'}
 
-  tree-sitter-cli@0.22.6:
-    resolution: {integrity: sha512-s7mYOJXi8sIFkt/nLJSqlYZP96VmKTc3BAwIX0rrrlRxWjWuCwixFqwzxWZBQz4R8Hx01iP7z3cT3ih58BUmZQ==}
+  tree-sitter-cli@0.26.3:
+    resolution: {integrity: sha512-1VHpmjnTsYJk03HDqzLGn9dmJaLsJ7YeGsnnSudC6XOZu5oasz0GEVOIVCTe6hA01YZJgHd1XGO6XJZe0Sj7tw==}
+    engines: {node: '>=12.0.0'}
     hasBin: true
 
   tree-sitter@0.21.1:
@@ -1688,7 +1697,11 @@ snapshots:
 
   node-addon-api@8.1.0: {}
 
+  node-addon-api@8.5.0: {}
+
   node-gyp-build@4.8.1: {}
+
+  node-gyp-build@4.8.4: {}
 
   npm-install-checks@7.1.2:
     dependencies:
@@ -1987,7 +2000,7 @@ snapshots:
     dependencies:
       is-number: 7.0.0
 
-  tree-sitter-cli@0.22.6: {}
+  tree-sitter-cli@0.26.3: {}
 
   tree-sitter@0.21.1:
     dependencies:

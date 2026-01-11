@@ -1,5 +1,10 @@
 [
   {
+    "type": "attribute_name",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "attribute_node",
     "named": true,
     "fields": {},
@@ -506,6 +511,7 @@
   {
     "type": "template",
     "named": true,
+    "root": true,
     "fields": {},
     "children": {
       "multiple": true,
@@ -555,6 +561,10 @@
     "named": false
   },
   {
+    "type": "...attributes",
+    "named": false
+  },
+  {
     "type": "/>",
     "named": false
   },
@@ -577,10 +587,6 @@
   {
     "type": "as",
     "named": false
-  },
-  {
-    "type": "attribute_name",
-    "named": true
   },
   {
     "type": "comment_statement",

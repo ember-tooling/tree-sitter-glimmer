@@ -10,6 +10,7 @@
   "types": "bindings/node",
   "files": [
     "grammar.js",
+    "tree-sitter.json",
     "binding.gyp",
     "prebuilds/**",
     "bindings/node/*",
@@ -23,8 +24,8 @@
     "lint:fix": "prettier --write .",
     "parse": "tree-sitter parse",
     "prebuildify": "prebuildify --napi --strip",
-    "print": "tree-sitter highlight --config-path ./test/config.json --grammar-path . ",
-    "print:tree": " tree-sitter parse --config-path ./test/config.json --grammar-path . ",
+    "print": "tree-sitter highlight",
+    "print:tree": " tree-sitter parse",
     "pretest": "tree-sitter generate",
     "test": "tree-sitter test --config-path ./test/config.json"
   },
@@ -46,10 +47,10 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@9.7.1",
+  "packageManager": "pnpm@10.28.0",
   "volta": {
     "node": "20.16.0",
-    "pnpm": "9.7.1"
+    "pnpm": "10.28.0"
   },
   "tree-sitter": [
     {

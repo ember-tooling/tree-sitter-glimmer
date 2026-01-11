@@ -1,0 +1,35 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/tree-sitter.json",
+  "grammars": [
+    {
+      "name": "glimmer",
+      "scope": "source.glimmer",
+      "path": ".",
+      "file-types": [
+        "hbs",
+        "handlebars",
+        "html.handlebars",
+        "glimmer"
+      ],
+      "injection-regex": "^(hbs|glimmer|handlebars)$",
+      "highlights": ["queries/glimmer/highlights.scm"],
+      "injections": ["queries/glimmer/injections.scm"],
+      "locals": ["queries/glimmer/locals.scm"],
+      "indents": ["queries/glimmer/indents.scm"],
+      "folds": ["queries/glimmer/folds.scm"]
+    }
+  ],
+  "metadata": {
+    "version": "1.4.0",
+    "license": "MIT",
+    "description": "Glimmer grammar for tree-sitter",
+    "authors": [
+      {
+        "name": "ember-tooling contributors"
+      }
+    ],
+    "links": {
+      "repository": "https://github.com/ember-tooling/tree-sitter-glimmer"
+    }
+  }
+}

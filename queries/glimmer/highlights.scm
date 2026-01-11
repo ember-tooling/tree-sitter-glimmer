@@ -2,11 +2,11 @@
 ; Tags that start with a lower case letter are HTML tags
 ; We'll also use this highlighting for named blocks (which start with `:`)
 ((tag_name) @tag
-  (#lua-match? @tag "^:?[%l]"))
+  (#match? @tag "^:?[a-z]"))
 
-; Tags that start with a capital letter are Glimmer components
+; Tags that start with a capital letter are components
 ((tag_name) @constructor
-  (#lua-match? @constructor "^%u"))
+  (#match? @constructor "^[A-Z]"))
 
 (attribute_name) @attribute
 
@@ -26,14 +26,22 @@
 
 ; Highlight `if`/`each`/`let`
 (block_statement_start
-  path: (identifier) @keyword.conditional)
+  path: (identifier) @keyword)
 
 (block_statement_end
-  path: (identifier) @keyword.conditional)
+  path: (identifier) @keyword)
+
+((block_statement_start
+  (identifier) @keyword.conditional)
+  (#match? @keyword.conditional "if"))
+
+((block_statement_end
+  (identifier) @keyword.conditional)
+  (#match? @keyword.conditional "if"))
 
 ((mustache_statement
   (identifier) @keyword.conditional)
-  (#lua-match? @keyword.conditional "else"))
+  (#match? @keyword.conditional "else"))
 
 ; == Mustache Statements ===
 ; Highlight the whole statement, to color brackets and separators
@@ -98,7 +106,7 @@
 (hash_pair
   key: (identifier) @property)
 
-(comment_statement) @comment @spell
+(comment_statement) @comment
 
 (attribute_node
   "=" @operator)

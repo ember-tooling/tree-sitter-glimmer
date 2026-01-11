@@ -17,13 +17,16 @@
     "src/**"
   ],
   "scripts": {
+    "print": "tree-sitter highlight --config-path ./test/config.json --grammar-path . ",
+    "print:tree": " tree-sitter parse --config-path ./test/config.json --grammar-path . ",
     "build:local": "tree-sitter build -o parser/glimmer.so",
     "lint:fix": "prettier --write .",
     "generate": "tree-sitter generate",
     "install": "node-gyp-build",
     "parse": "tree-sitter parse",
     "prebuildify": "prebuildify --napi --strip",
-    "test": "tree-sitter test"
+    "pretest": "tree-sitter generate",
+    "test": "tree-sitter test --config-path ./test/config.json"
   },
   "dependencies": {
     "node-addon-api": "^8.1.0",

@@ -2,7 +2,12 @@
   "name": "tree-sitter-glimmer",
   "version": "1.4.0",
   "description": "tree-sitter parser for glimmer syntax (and also some of handlebars)",
-  "type": "module",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "glimmer"
+  ],
   "repository": {
     "type": "git",
     "url": "git+git@github.com:ember-tooling/tree-sitter-glimmer.git.git"
@@ -13,14 +18,9 @@
     "name": "NullVoxPopuli",
     "url": "github.com/nullvoxpopuli"
   },
+  "type": "module",
   "main": "bindings/node",
   "types": "bindings/node",
-  "keywords": [
-    "incremental",
-    "parsing",
-    "tree-sitter",
-    "glimmer"
-  ],
   "files": [
     "grammar.js",
     "tree-sitter.json",
@@ -31,12 +31,22 @@
     "src/**",
     "*.wasm"
   ],
+  "scripts": {
+    "install": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "pretest": "node-gyp-build",
+    "test": "npm run test:node && npm run test:parser",
+    "test:node": "node --test bindings/node/*_test.js",
+    "test:parser": "tree-sitter test --config-path ./test/config.json"
+  },
   "dependencies": {
     "node-addon-api": "^8.5.0",
     "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
     "prebuildify": "^6.0.1",
+    "release-plan": "^0.17.0",
     "tree-sitter-cli": "^0.26.3"
   },
   "peerDependencies": {
@@ -47,14 +57,5 @@
       "optional": true
     }
   },
-  "packageManager": "pnpm@10.28.0",
-  "scripts": {
-    "install": "node-gyp-build",
-    "pretest": "node-gyp-build",
-    "prestart": "tree-sitter build --wasm",
-    "start": "tree-sitter playground",
-    "test:node": "node --test bindings/node/*_test.js",
-    "test:parser": "tree-sitter test --config-path ./test/config.json",
-    "test": "npm run test:node && npm run test:parser"
-  }
+  "packageManager": "pnpm@10.28.0"
 }

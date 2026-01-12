@@ -6,13 +6,19 @@
       "camelcase": "Glimmer",
       "title": "Glimmer",
       "scope": "source.glimmer",
+      "path": ".",
       "file-types": [
         "handlebars",
         "html.handlebars",
         "hbs",
         "glimmer"
       ],
-      "injection-regex": "^glimmer$",
+      "injection-regex": "^(hbs|glimmer|handlebars)$",
+      "highlights": ["queries/glimmer/highlights.scm"],
+      "injections": ["queries/glimmer/injections.scm"],
+      "locals": ["queries/glimmer/locals.scm"],
+      "indents": ["queries/glimmer/indents.scm"],
+      "folds": ["queries/glimmer/folds.scm"],
       "class-name": "TreeSitterGlimmer"
     }
   ],

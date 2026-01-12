@@ -53,6 +53,8 @@
     "pretest": "node-gyp-build",
     "prestart": "tree-sitter build --wasm",
     "start": "tree-sitter playground",
-    "test": "node --test bindings/node/*_test.js"
+    "test:node": "node --test bindings/node/*_test.js",
+    "test:parser": "tree-sitter test --config-path ./test/config.json",
+    "test": "npm run test:node && npm run test:parser"
   }
 }

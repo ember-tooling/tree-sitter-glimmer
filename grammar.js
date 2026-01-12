@@ -1,7 +1,7 @@
 export default grammar({
   name: "glimmer",
 
-  externals: ($) => [$.comment],
+  externals: ($) => [$.comment, $.raw_text],
 
   rules: {
     // Entire file
@@ -13,8 +13,10 @@ export default grammar({
         alias($.comment, $.comment_statement),
         $.mustache_statement,
         $.block_statement,
+        prec(2, $.style_element),
+        prec(2, $.script_element),
         $.element_node,
-        $.text_node,
+        prec(-1, $.text_node),
       ),
 
     //
@@ -90,6 +92,93 @@ export default grammar({
         seq($.element_node_start, repeat($._declaration), $.element_node_end),
         $.element_node_void,
       ),
+
+    // Mirror tree-sitter-html's special handling of <style> elements:
+    // treat the contents as a single RAW_TEXT token up to the closing tag.
+    //
+    // NOTE: We only special-case <style> here (not <script>) because that is
+    // what the new corpus test asserts.
+    style_element: ($) =>
+      prec.right(
+        2,
+        seq(
+          optional($._style_element_whitespace),
+          alias($.style_start_tag, $.start_tag),
+          optional($.raw_text),
+          alias($.style_end_tag, $.end_tag),
+          optional($._style_element_whitespace),
+        ),
+      ),
+
+    _style_element_whitespace: () => token(/\s+/),
+
+
+    // These are only used as alias targets so the parse tree matches the
+    // upstream HTML grammar's node names.
+    start_tag: ($) =>
+      seq(
+        "<",
+        $.tag_name,
+        repeat(
+          choice(
+            $.attribute_node,
+            $.mustache_statement,
+            alias($.comment, $.comment_statement),
+          ),
+        ),
+        optional($.block_params),
+        ">",
+      ),
+
+    end_tag: ($) => seq("</", $.tag_name, ">"),
+
+    style_start_tag: ($) =>
+      seq(
+        "<",
+        alias("style", $.tag_name),
+        repeat(
+          choice(
+            $.attribute_node,
+            $.mustache_statement,
+            alias($.comment, $.comment_statement),
+          ),
+        ),
+        optional($.block_params),
+        ">",
+      ),
+
+  style_end_tag: ($) => seq("</", alias("style", $.tag_name), ">"),
+
+    // Mirror tree-sitter-html's special handling of <script> elements as well,
+    // so JS braces don't explode the Glimmer grammar.
+    script_element: ($) =>
+      prec.right(
+        2,
+        seq(
+          optional($._style_element_whitespace),
+          alias($.script_start_tag, $.start_tag),
+          optional($.raw_text),
+          alias($.script_end_tag, $.end_tag),
+          optional($._style_element_whitespace),
+        ),
+      ),
+
+    script_start_tag: ($) =>
+      seq(
+        "<",
+        alias("script", $.tag_name),
+        repeat(
+          choice(
+            $.attribute_node,
+            $.mustache_statement,
+            alias($.comment, $.comment_statement),
+          ),
+        ),
+        optional($.block_params),
+        ">",
+      ),
+
+    script_end_tag: ($) => seq("</", alias("script", $.tag_name), ">"),
 
     attribute_name: () => /[^<>"'/={}()\s\.,!?|]+/,
 

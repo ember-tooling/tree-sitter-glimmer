@@ -1,0 +1,17 @@
+==================
+Style Element
+==================
+<style>
+  div {}
+  p {}
+  /* dynamic -> {{ }} <- dynamic */
+  /* comment */
+</style>
+---
+
+(template
+  (style_element
+      (start_tag (tag_name))
+      (raw_text)
+      (end_tag (tag_name)))
+)

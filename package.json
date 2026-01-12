@@ -10,7 +10,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+git@github.com:ember-tooling/tree-sitter-glimmer.git.git"
+    "url": "git@github.com:ember-tooling/tree-sitter-glimmer.git"
   },
   "funding": "",
   "license": "MIT",

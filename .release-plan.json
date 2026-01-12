@@ -2,25 +2,17 @@
   "solution": {
     "tree-sitter-glimmer": {
       "impact": "minor",
-      "oldVersion": "1.4.0",
-      "newVersion": "1.5.0",
+      "oldVersion": "1.5.0",
+      "newVersion": "1.6.0",
       "tagName": "latest",
       "constraints": [
         {
           "impact": "minor",
           "reason": "Appears in changelog section :rocket: Enhancement"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :bug: Bug Fix"
-        },
-        {
-          "impact": "patch",
-          "reason": "Appears in changelog section :house: Internal"
         }
       ],
       "pkgJSONPath": "./package.json"
     }
   },
-  "description": "## Release (2026-01-12)\n\n* tree-sitter-glimmer 1.5.0 (minor)\n\n#### :rocket: Enhancement\n* `tree-sitter-glimmer`\n  * [#176](https://github.com/ember-tooling/tree-sitter-glimmer/pull/176) Style element support ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#179](https://github.com/ember-tooling/tree-sitter-glimmer/pull/179) Update highlights, add tree-sitter.json ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#158](https://github.com/ember-tooling/tree-sitter-glimmer/pull/158) Add comment injections ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :bug: Bug Fix\n* `tree-sitter-glimmer`\n  * [#159](https://github.com/ember-tooling/tree-sitter-glimmer/pull/159) Sync injections with nvim treesitter ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :house: Internal\n* `tree-sitter-glimmer`\n  * [#186](https://github.com/ember-tooling/tree-sitter-glimmer/pull/186) Fix pub ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#185](https://github.com/ember-tooling/tree-sitter-glimmer/pull/185) Update release-plan ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#183](https://github.com/ember-tooling/tree-sitter-glimmer/pull/183) Get CI passing ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#184](https://github.com/ember-tooling/tree-sitter-glimmer/pull/184) It runs now -- but it looks like corups and highlight checking isn't … ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#182](https://github.com/ember-tooling/tree-sitter-glimmer/pull/182) Use the correct default branch name ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#181](https://github.com/ember-tooling/tree-sitter-glimmer/pull/181) Fix publish.yml ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#180](https://github.com/ember-tooling/tree-sitter-glimmer/pull/180) Update workflows / fix ci ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#179](https://github.com/ember-tooling/tree-sitter-glimmer/pull/179) Update highlights, add tree-sitter.json ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#178](https://github.com/ember-tooling/tree-sitter-glimmer/pull/178) Split out highlight tests for better CLI output ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#177](https://github.com/ember-tooling/tree-sitter-glimmer/pull/177) Add MIT LICENSE ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n  * [#156](https://github.com/ember-tooling/tree-sitter-glimmer/pull/156) Update prettier ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+  "description": "## Release (2026-01-12)\n\n* tree-sitter-glimmer 1.6.0 (minor)\n\n#### :rocket: Enhancement\n* `tree-sitter-glimmer`\n  * [#187](https://github.com/ember-tooling/tree-sitter-glimmer/pull/187) Update injections ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
 }

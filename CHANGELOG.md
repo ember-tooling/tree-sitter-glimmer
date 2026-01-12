@@ -2,6 +2,17 @@
 
 ## Release (2026-01-12)
 
+* tree-sitter-glimmer 1.6.0 (minor)
+
+#### :rocket: Enhancement
+* `tree-sitter-glimmer`
+  * [#187](https://github.com/ember-tooling/tree-sitter-glimmer/pull/187) Update injections ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
+## Release (2026-01-12)
+
 * tree-sitter-glimmer 1.5.0 (minor)
 
 #### :rocket: Enhancement

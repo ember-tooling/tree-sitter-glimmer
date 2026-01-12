@@ -4,16 +4,14 @@
 
 ; <style> tags
 ((style_element
-  (start_tag
-    (tag_name) @_tag_name
-    (#eq? @_tag_name "style"))
   (raw_text) @injection.content)
-  (#set! injection.language "css"))
+ (#set! injection.language "css")
+ (#set! injection.include-children)
+ )
 
 ; <script> tags
 ((script_element
-  (start_tag
-    (tag_name) @_tag_name
-    (#eq? @_tag_name "script"))
   (raw_text) @injection.content)
-  (#set! injection.language "glimmer_javascript"))
+ (#set! injection.language "javascript")
+ (#set! injection.include-children)
+)

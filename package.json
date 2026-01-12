@@ -1,79 +1,60 @@
 {
   "name": "tree-sitter-glimmer",
   "version": "1.4.0",
+  "description": "tree-sitter parser for glimmer syntax (and also some of handlebars)",
+  "type": "module",
   "repository": {
     "type": "git",
-    "url": "git@github.com:ember-tooling/tree-sitter-glimmer.git"
+    "url": "git+git@github.com:ember-tooling/tree-sitter-glimmer.git.git"
   },
+  "funding": "",
   "license": "MIT",
+  "author": {
+    "name": "NullVoxPopuli",
+    "url": "github.com/nullvoxpopuli"
+  },
   "main": "bindings/node",
   "types": "bindings/node",
+  "keywords": [
+    "incremental",
+    "parsing",
+    "tree-sitter",
+    "glimmer"
+  ],
   "files": [
     "grammar.js",
+    "tree-sitter.json",
     "binding.gyp",
     "prebuilds/**",
     "bindings/node/*",
     "queries/*",
-    "src/**"
+    "src/**",
+    "*.wasm"
   ],
-  "scripts": {
-    "build:local": "tree-sitter build -o parser/glimmer.so",
-    "generate": "tree-sitter generate",
-    "install": "node-gyp-build",
-    "lint:fix": "prettier --write .",
-    "parse": "tree-sitter parse",
-    "prebuildify": "prebuildify --napi --strip",
-    "print": "tree-sitter highlight --config-path ./test/config.json --grammar-path . ",
-    "print:tree": " tree-sitter parse --config-path ./test/config.json --grammar-path . ",
-    "pretest": "tree-sitter generate",
-    "test": "tree-sitter test --config-path ./test/config.json"
-  },
   "dependencies": {
-    "node-addon-api": "^8.1.0",
-    "node-gyp-build": "^4.8.0"
+    "node-addon-api": "^8.5.0",
+    "node-gyp-build": "^4.8.4"
   },
   "devDependencies": {
-    "prebuildify": "^6.0.0",
-    "prettier": "^3.3.3",
-    "release-plan": "^0.17.0",
-    "tree-sitter-cli": "^0.22.6"
+    "prebuildify": "^6.0.1",
+    "tree-sitter-cli": "^0.26.3"
   },
   "peerDependencies": {
-    "tree-sitter": "^0.21.0"
+    "tree-sitter": "^0.25.0"
   },
   "peerDependenciesMeta": {
-    "tree_sitter": {
+    "tree-sitter": {
       "optional": true
     }
   },
-  "packageManager": "pnpm@9.7.1",
-  "volta": {
-    "node": "20.16.0",
-    "pnpm": "9.7.1"
-  },
-  "tree-sitter": [
-    {
-      "scope": "source.glimmer",
-      "file-types": [
-        "hbs",
-        "handlebars",
-        "html.handlebars",
-        "glimmer"
-      ],
-      "path": "./",
-      "highlights": [
-        "queries/glimmer/highlights.scm"
-      ],
-      "locals": [
-        "queries/glimmer/locals.scm"
-      ],
-      "tags": [
-        "queries/glimmer/tags.scm"
-      ],
-      "injections": [
-        "queries/glimmer/injections.scm"
-      ],
-      "injection-regex": "^(hbs|glimmer|handlebars)$"
-    }
-  ]
+  "packageManager": "pnpm@10.28.0",
+  "scripts": {
+    "install": "node-gyp-build",
+    "pretest": "node-gyp-build",
+    "prestart": "tree-sitter build --wasm",
+    "start": "tree-sitter playground",
+    "test:node": "node --test bindings/node/*_test.js",
+    "test:parser": "tree-sitter test --config-path ./test/config.json",
+    "test": "npm run test:node && npm run test:parser"
+  }
 }

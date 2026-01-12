@@ -1,12 +1,13 @@
+
+; Tags that start with a capital letter are components
+((tag_name) @constructor
+  (#match? @constructor "^[A-Z]"))
+
 ; === Tag Names ===
 ; Tags that start with a lower case letter are HTML tags
 ; We'll also use this highlighting for named blocks (which start with `:`)
 ((tag_name) @tag
   (#match? @tag "^:?[a-z]"))
-
-; Tags that start with a capital letter are components
-((tag_name) @constructor
-  (#match? @constructor "^[A-Z]"))
 
 (attribute_name) @attribute
 
@@ -33,15 +34,15 @@
 
 ((block_statement_start
   (identifier) @keyword.conditional)
-  (#match? @keyword.conditional "if"))
+  (#eq? @keyword.conditional "if"))
 
 ((block_statement_end
   (identifier) @keyword.conditional)
-  (#match? @keyword.conditional "if"))
+  (#eq? @keyword.conditional "if"))
 
 ((mustache_statement
   (identifier) @keyword.conditional)
-  (#match? @keyword.conditional "else"))
+  (#eq? @keyword.conditional "else"))
 
 ; == Mustache Statements ===
 ; Highlight the whole statement, to color brackets and separators

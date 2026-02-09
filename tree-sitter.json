@@ -17,8 +17,6 @@
       "highlights": ["queries/glimmer/highlights.scm"],
       "injections": ["queries/glimmer/injections.scm"],
       "locals": ["queries/glimmer/locals.scm"],
-      "indents": ["queries/glimmer/indents.scm"],
-      "folds": ["queries/glimmer/folds.scm"],
       "class-name": "TreeSitterGlimmer"
     }
   ],
@@ -29,12 +27,11 @@
     "authors": [
       {
         "name": "NullVoxPopuli",
-        "url": "github.com/nullvoxpopuli"
+        "url": "https://github.com/nullvoxpopuli"
       }
     ],
     "links": {
-      "repository": "git@github.com:ember-tooling/tree-sitter-glimmer.git",
-      "funding": ""
+      "repository": "https://github.com/ember-tooling/tree-sitter-glimmer"
     }
   },
   "bindings": {

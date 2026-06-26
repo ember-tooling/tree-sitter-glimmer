@@ -6,3 +6,29 @@ Foo
 
 (template
   (text_node))
+
+==================
+Stray braces are text
+==================
+a }} b { c
+---
+
+(template
+  (text_node)
+  (text_node)
+  (text_node)
+  (text_node)
+  (text_node)
+  (text_node))
+
+==================
+Comment ending early at a nested mustache leaves trailing text
+==================
+{{! describes {{#if}} here }}
+---
+
+(template
+  (comment_statement)
+  (text_node)
+  (text_node)
+  (text_node))

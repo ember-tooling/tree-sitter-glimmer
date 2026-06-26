@@ -56,6 +56,19 @@
             "type": "SYMBOL",
             "name": "text_node"
           }
+        },
+        {
+          "type": "PREC",
+          "value": -2,
+          "content": {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_loose_brace"
+            },
+            "named": true,
+            "value": "text_node"
+          }
         }
       ]
     },
@@ -64,6 +77,17 @@
       "content": {
         "type": "PATTERN",
         "value": "[^<>{}]+"
+      }
+    },
+    "_loose_brace": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PREC",
+        "value": -1,
+        "content": {
+          "type": "PATTERN",
+          "value": "[{}]"
+        }
       }
     },
     "string_literal": {

@@ -17,6 +17,7 @@ export default grammar({
         prec(2, $.script_element),
         $.element_node,
         prec(-1, $.text_node),
+        prec(-2, alias($._loose_brace, $.text_node)),
       ),
 
     //
@@ -27,6 +28,13 @@ export default grammar({
     // - An open/close HTML delimiter (<, >)
     // - An open/close Mustache delimiter ({, })
     text_node: () => token(/[^<>{}]+/),
+
+    // A lone `{` or `}` that isn't part of a `{{ ... }}` delimiter is rendered
+    // by Glimmer as literal text (e.g. the trailing `}}` left over when a
+    // single-line comment like `{{! ... {{#if}} ... }}` terminates early at the
+    // inner `}}`). The low precedence ensures real `{{`/`}}` delimiters, which
+    // are longer matches, always win.
+    _loose_brace: () => token(prec(-1, /[{}]/)),
 
     //
     // Primitives

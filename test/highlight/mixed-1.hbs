@@ -1,0 +1,60 @@
+{{! ===== (1) result-type narrowing of or / and ===== }}
+
+{{! Baselines: the un-narrowed unions are NOT assignable to the sinks. }}
+{{! @glint-expect-error: 'string | undefined' is not assignable to 'string' }}
+<AcceptString @value={{maybeName}} />
+{{! @glint-expect-error: 'string | null' is not assignable to 'string' }}
+<AcceptString @value={{nullableName}} />
+
+{{! (or) excludes the falsy `undefined` / `null` member once a later operand
+    can supply a value — usable directly or through a binding. }}
+<AcceptString @value={{or maybeName fallback}} />
+<AcceptString @value={{or nullableName fallback}} />
+{{#let (or maybeCount fallbackCount) as |count|}}
+  <AcceptNumber @value={{count}} />
+{{/let}}
+
+{{! (and) short-circuits to the trailing operand once the leading operand is
+    statically truthy, so the result takes the trailing operand's type. }}
+<AcceptString @value={{and truthyObj fallback}} />
+<AcceptNumber @value={{and truthyObj fallbackCount}} />
+
+{{! ===== (2) control-flow narrowing via #if ===== }}
+{{! ===== (2) control-flow narrowing via {{#if ===== }}
+{{! ===== (2) control-flow narrowing via #if} ===== }}
+{{! ===== (2) control-flow narrowing via {{#if}} ===== }}
+
+{{! ---- optional value: `{{#if}}` removes the falsy `undefined` ---- }}
+{{! @glint-expect-error: maybeName is possibly undefined outside the guard }}
+<AcceptString @value={{maybeName}} />
+{{#if maybeName}}
+  <AcceptString @value={{maybeName}} />
+{{else}}
+  {{! @glint-expect-error: maybeName is undefined in the else branch }}
+  <AcceptString @value={{maybeName}} />
+{{/if}}
+
+{{! ---- optional object: narrow away `undefined`, then read its props ---- }}
+{{! @glint-expect-error: maybeUser is possibly undefined outside the guard }}
+<AcceptString @value={{maybeUser.name}} />
+{{#if maybeUser}}
+  <AcceptString @value={{maybeUser.name}} />
+  <AcceptNumber @value={{maybeUser.age}} />
+{{/if}}
+
+{{! ---- optional property ---- }}
+{{#if profile.nickname}}
+  <AcceptString @value={{profile.nickname}} />
+{{/if}}
+
+{{! ---- discriminated union: each branch narrows to the variant that owns
+    the matching property, and the other variant's props are unavailable ---- }}
+{{#if shape.isCircle}}
+  <AcceptNumber @value={{shape.radius}} />
+  {{! @glint-expect-error: sideLength belongs to the non-circle variant }}
+  <AcceptNumber @value={{shape.sideLength}} />
+{{else}}
+  <AcceptNumber @value={{shape.sideLength}} />
+  {{! @glint-expect-error: radius belongs to the circle variant }}
+  <AcceptNumber @value={{shape.radius}} />
+{{/if}}

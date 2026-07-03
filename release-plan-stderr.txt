@@ -1,0 +1,7 @@
+# Unlabeled Changes
+
+* `tree-sitter-glimmer`
+  * [#193](https://github.com/ember-tooling/tree-sitter-glimmer/pull/193) Support decimals in number literals ([@NullVoxPopuli-ai-agent](https://github.com/NullVoxPopuli-ai-agent))
+
+
+*Cannot plan release until the above changes are labeled*.

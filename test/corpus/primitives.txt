@@ -37,6 +37,28 @@ Number
     (number_literal)))
 
 ==================
+Number with decimal
+==================
+{{1.5}}
+---
+
+(template
+  (mustache_statement
+    (number_literal)))
+
+==================
+Number with decimal as helper argument
+==================
+{{fixed 1.5}}
+---
+
+(template
+  (mustache_statement
+    (helper_invocation
+      helper: (identifier)
+      argument: (number_literal))))
+
+==================
 Boolean
 ==================
 {{true}}

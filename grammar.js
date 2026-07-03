@@ -47,7 +47,9 @@ export default grammar({
     // https://github.com/tree-sitter/tree-sitter-javascript/blob/37af80d372ae9e2f5adc2c6321d5a34294dc348b/grammar.js#L818
     _double_quote_string_literal: () => seq('"', /[^"\\]*/, '"'),
 
-    number_literal: () => /[0-9]+/,
+    // Matches the Handlebars NUMBER token: an integer with an optional
+    // decimal part (e.g. `12`, `1.5`)
+    number_literal: () => /[0-9]+(\.[0-9]+)?/,
 
     boolean_literal: () => choice("true", "false"),
 

@@ -16,6 +16,75 @@ If Statement
       path: (identifier))))
 
 ==================
+If and else Statement
+==================
+{{#if condition}}
+  Content!
+{{else}}
+  More content
+{{/if}}
+---
+
+(template
+  (block_statement
+    (block_statement_start
+      path: (identifier)
+      argument: (identifier))
+    program: (text_node)
+    (block_statement_inverse)
+    program: (text_node)
+    (block_statement_end
+      path: (identifier))))
+
+==================
+If and else if Statement
+==================
+{{#if condition}}
+  Content!
+{{else if condition}}
+  More content
+{{/if}}
+---
+
+(template
+  (block_statement
+    (block_statement_start
+      path: (identifier)
+      argument: (identifier))
+    program: (text_node)
+    (block_statement_inverse
+      argument: (identifier))
+    program: (text_node)
+    (block_statement_end
+      path: (identifier))))
+
+==================
+If, else if, and else Statement
+==================
+{{#if condition}}
+  Content!
+{{else if condition}}
+  More content
+{{else}}
+  Even more content
+{{/if}}
+---
+
+(template
+  (block_statement
+    (block_statement_start
+      path: (identifier)
+      argument: (identifier))
+    program: (text_node)
+    (block_statement_inverse
+      argument: (identifier))
+    program: (text_node)
+    (block_statement_inverse)
+    program: (text_node)
+    (block_statement_end
+      path: (identifier))))
+
+==================
 Each Statement
 ==================
 {{#each array as |item index|}}
